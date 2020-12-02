@@ -1,7 +1,8 @@
 import Head from 'next/head';
 import styled from 'styled-components';
 
-import { Container } from '../components/Utilities';
+import { Container, Heading, Section } from '../components/Utilities';
+import { colors } from '../constants/theme';
 
 export default function Home() {
   return (
@@ -9,9 +10,30 @@ export default function Home() {
       <Head>
         <title>7 Days 50 Projects</title>
       </Head>
-      <Container>
-        <h1>Welcome!</h1>
-      </Container>
+      <Hero>
+        <Heading>7 Days 50 Projects</Heading>
+        <p>using Next JS and styled-components</p>
+      </Hero>
+      <Section>
+        <Container>
+          <Heading>Index</Heading>
+        </Container>
+      </Section>
+      <Section>
+        <Container>
+          <Heading>Our Team</Heading>
+        </Container>
+      </Section>
     </>
   );
 }
+
+const Hero = styled.div`
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: ${colors.primary};
+  color: ${colors.contrast.primary};
+`;
