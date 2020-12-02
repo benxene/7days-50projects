@@ -16,12 +16,12 @@ export default function Home() {
       </Hero>
       <Section>
         <Container>
-          <Heading>Index</Heading>
+          <Heading center>Index</Heading>
         </Container>
       </Section>
-      <Section>
+      <Section bgColor={colors.darkSlate} textColor={colors.contrast.darkSlate}>
         <Container>
-          <Heading>Our Team</Heading>
+          <Heading center>Our Team</Heading>
         </Container>
       </Section>
     </>
