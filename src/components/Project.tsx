@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import styled from 'styled-components';
 import { colors, sizes } from '../constants/theme';
 
@@ -5,6 +6,10 @@ export default function Project({ image, day, children: title, link }: IProps) {
   return (
     <Card image={image}>
       <Title>{title}</Title>
+      <InfoPanel>
+        <p className='day'>{`Day ${day}`}</p>
+        <Link href={link}>Link</Link>
+      </InfoPanel>
     </Card>
   );
 }
@@ -18,7 +23,7 @@ const Card = styled.div<{ image: string }>`
   border-radius: ${sizes.radius};
   box-shadow: ${sizes.shadows.light} rgba(0, 0, 0, 0.4);
   transition: all 0.2s;
-
+  overflow: hidden;
   position: relative;
 
   &:hover {
@@ -38,6 +43,20 @@ const Title = styled.h2`
   width: 100%;
   text-align: center;
   transform: translate(-50%, -50%);
+`;
+
+const InfoPanel = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: ${colors.contrast.primary};
+  display: flex;
+  & > p {
+    margin-right: auto;
+  }
 `;
 
 interface IProps {

@@ -22,6 +22,9 @@ export default function Home() {
             <Project day={1} image='index.png' link='#'>
               Index page
             </Project>
+            <Project day={1} image='index.png' link='#'>
+              Index page
+            </Project>
           </ProjectsGrid>
         </Container>
       </Section>
@@ -46,6 +49,7 @@ const Hero = styled.div`
 
 const ProjectsGrid = styled.div`
   display: grid;
+  place-content: center;
   grid-template-columns: repeat(auto-fill, 25rem);
   grid-auto-rows: minmax(18rem, 1fr);
   grid-gap: 1.6rem;
