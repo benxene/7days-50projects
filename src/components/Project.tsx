@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import styled from 'styled-components';
+import { RiExternalLinkLine as LinkIcon } from 'react-icons/ri';
 import { colors, sizes } from '../constants/theme';
 
 export default function Project({ image, day, children: title, link }: IProps) {
@@ -8,7 +9,10 @@ export default function Project({ image, day, children: title, link }: IProps) {
       <Title>{title}</Title>
       <InfoPanel>
         <p className='day'>{`Day ${day}`}</p>
-        <Link href={link}>Link</Link>
+        <LinkGroup>
+          <LinkIcon />
+          <Link href={link}>Link</Link>
+        </LinkGroup>
       </InfoPanel>
     </Card>
   );
@@ -56,6 +60,15 @@ const InfoPanel = styled.div`
   display: flex;
   & > p {
     margin-right: auto;
+  }
+`;
+
+const LinkGroup = styled.div`
+  display: flex;
+  align-items: center;
+
+  & > a {
+    display: inline-block;
   }
 `;
 
