@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import styled from 'styled-components';
 
+import { colors } from '../constants/theme';
 import { Container } from '../components/Utilities';
 
 export default function RotatingNav() {
@@ -59,21 +60,25 @@ const NewContainer = styled(Container)`
 `;
 
 const CircleContainer = styled.div<{}>`
-  width: 22rem;
-  height: 22rem;
+  width: 20rem;
+  height: 20rem;
   border-radius: 50%;
   position: absolute;
   top: -11rem;
   left: -11rem;
-  background-color: #2d6cdf;
+  background-color: ${colors.primary};
 `;
 
 const Content = styled.div<{}>`
   max-width: 90rem;
   margin: 10rem auto;
 
-  @media (max-width: 90rem) {
+  @media (max-width: 70rem) {
     max-width: 50rem;
+  }
+
+  @media (max-width: 40rem) {
+    margin: 13rem 2rem;
   }
 `;
 
@@ -91,13 +96,24 @@ const Image = styled.div<{ image?: string; margin?: string; width?: string; heig
   background-image: url(${props => props.image});
   background-position: center;
   background-size: cover;
+  text-align: center;
 
-  @media (max-width: 90rem) {
+  @media (max-width: 70rem) {
     width: 45rem;
     height: 25rem;
   }
-  @media (max-width: 60rem) {
-    width: 28rem;
-    height: 18rem;
+  @media (max-width: 40rem) {
+    width: 35rem;
+    height: 20rem;
+  }
+
+  @media (max-width: 26rem) {
+    width: 25rem;
+    height: 17rem;
+  }
+
+  @media (max-width: 19rem) {
+    width: 15rem;
+    height: 8rem;
   }
 `;
