@@ -2,6 +2,7 @@ import Head from 'next/head';
 import styled from 'styled-components';
 
 import { Container, Heading, Section } from '../components/Utilities';
+import Project from '../components/Project';
 import { colors } from '../constants/theme';
 
 export default function Home() {
@@ -17,6 +18,11 @@ export default function Home() {
       <Section>
         <Container>
           <Heading center>Index</Heading>
+          <ProjectsGrid>
+            <Project day={1} image='index.png' link='#'>
+              Index page
+            </Project>
+          </ProjectsGrid>
         </Container>
       </Section>
       <Section bgColor={colors.darkSlate} textColor={colors.contrast.darkSlate}>
@@ -36,4 +42,11 @@ const Hero = styled.div`
   align-items: center;
   background-color: ${colors.primary};
   color: ${colors.contrast.primary};
+`;
+
+const ProjectsGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 25rem);
+  grid-auto-rows: minmax(18rem, 1fr);
+  grid-gap: 1.6rem;
 `;

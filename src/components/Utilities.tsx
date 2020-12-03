@@ -12,6 +12,7 @@ export const Container = styled.div`
 export const Heading = styled.h1<{ center?: boolean }>`
   font-size: 5rem;
   font-weight: 800;
+  margin-bottom: 2rem;
   text-align: ${props => (props.center ? 'center' : 'match-parent')};
 `;
 
