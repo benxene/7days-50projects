@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Note from '../components/Note';
 import styled from 'styled-components';
 import { AiOutlinePlus } from 'react-icons/ai';
+import Head from 'next/head';
 
 export default function Home() {
   const [notes, setNotes] = useState<Array<string>>([]);
@@ -14,20 +15,24 @@ export default function Home() {
   const handleAddButtonClick = () => setNotes(notes => [...notes, '']);
 
   return (
-    <Container>
-      <ContainerHeader>
-        <p></p>
-        <AddButton onClick={handleAddButtonClick}>
-          <AiOutlinePlus /> Add Note
-        </AddButton>
-      </ContainerHeader>
+    <>
+      <Head>
+        <title>Notes app | 7 days 50 projects</title>
+      </Head>
+      <Container>
+        <ContainerHeader>
+          <AddButton onClick={handleAddButtonClick}>
+            <AiOutlinePlus /> Add Note
+          </AddButton>
+        </ContainerHeader>
 
-      <NotesContainer>
-        {notes.map((note, index) => (
-          <Note key={index} onDelete={handleDeleteButtonClick} index={index} description={note} setNotes={setNotes} />
-        ))}
-      </NotesContainer>
-    </Container>
+        <NotesContainer>
+          {notes.map((note, index) => (
+            <Note key={index} onDelete={handleDeleteButtonClick} index={index} description={note} setNotes={setNotes} />
+          ))}
+        </NotesContainer>
+      </Container>
+    </>
   );
 }
 
@@ -42,8 +47,7 @@ const Container = styled.main`
 
 const ContainerHeader = styled.div`
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: row-reverse;
   margin-bottom: 1rem;
 `;
 

@@ -51,8 +51,7 @@ const NoteHeader = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  .fa-edit,
-  .fa-trash-alt {
+  & > * {
     cursor: pointer;
   }
 `;
