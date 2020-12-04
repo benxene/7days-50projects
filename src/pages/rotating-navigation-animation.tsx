@@ -91,7 +91,7 @@ const ContentContainer = styled.div`
   z-index: 1;
 `;
 
-const Content = styled.div<{}>`
+const Content = styled.div`
   padding: 10rem;
   background-color: ${colors.contrast.primary};
 
@@ -145,7 +145,7 @@ const Circle = styled.div`
   z-index: 1000;
 `;
 
-const CircleContainer = styled.div<{}>`
+const CircleContainer = styled.div`
   width: 20rem;
   height: 20rem;
   border-radius: 50%;
@@ -154,16 +154,16 @@ const CircleContainer = styled.div<{}>`
   transition: all 1s;
 `;
 
-const BarButton = styled.button<{}>`
-  cursor: pointer;
-  background-color: transparent;
-  outline: none;
-  border-color: transparent;
+const BarButton = styled.button`
   position: absolute;
   top: 13.5rem;
   left: 12.5rem;
   width: 2.5rem;
   height: 2.5rem;
+  cursor: pointer;
+  border-color: transparent;
+  background-color: transparent;
+  outline: none;
 
   &::active,
   &::focus {
@@ -177,7 +177,7 @@ const BarButton = styled.button<{}>`
   }
 `;
 
-const CrossButton = styled.button<{}>`
+const CrossButton = styled.button`
   cursor: pointer;
   background-color: transparent;
   outline: none;
