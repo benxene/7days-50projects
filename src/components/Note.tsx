@@ -1,30 +1,33 @@
-/** @format */
-
 import { useState } from 'react';
 import styled from 'styled-components';
 import { AiFillDelete, AiOutlineEdit } from 'react-icons/ai';
 
 export default function Note(props: {
-  onDescription: (arg0: string, arg1: any) => void;
+  setNotes: React.Dispatch<React.SetStateAction<string[]>>;
   index: number;
+  description: string;
   onDelete: (arg0: number) => void;
 }) {
-  const [description, setDescription] = useState('');
+  const [disabled, setDisable] = useState(true);
 
   const handleDescriptionChange = (v: string) => {
-    setDescription(v);
-    props.onDescription(v, props.index);
+    props.setNotes(old => {
+      old[props.index] = v;
+      return [...old];
+    });
   };
 
   return (
     <NoteBox>
       <NoteHeader>
-        <AiOutlineEdit />
-        <AiFillDelete onClick={() => props.onDelete(props.index)} />
+        <AiOutlineEdit style={{ color: 'white' }} onClick={() => setDisable(false)} />
+        <AiFillDelete style={{ color: 'white' }} onClick={() => props.onDelete(props.index)} />
       </NoteHeader>
       <TextArea
+        disabled={disabled}
         onChange={e => handleDescriptionChange(e.target.value)}
-        value={description}
+        value={props.description}
+        onBlur={() => setDisable(true)}
         name='note'
         cols={30}
       ></TextArea>

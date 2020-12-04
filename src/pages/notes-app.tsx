@@ -1,41 +1,30 @@
-/** @format */
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Note from '../components/Note';
 import styled from 'styled-components';
 import { AiOutlinePlus } from 'react-icons/ai';
 
 export default function Home() {
-  const [notes, setNotes] = useState(['', '']);
+  const [notes, setNotes] = useState<Array<string>>([]);
 
-  useEffect(() => {
-    console.log(notes);
-  }, [notes]);
-
-  const hanldeDeleteButtonClick = (i: number) => {
+  const handleDeleteButtonClick = (i: number) => {
     const result = notes.filter((item, index) => i !== index);
     setNotes(result);
   };
 
-  const hanldeAddButtonClick = () => setNotes(notes => [...notes, '']);
-
-  const hanldeDescriptionChange = (text: string, index: number) => {
-    notes[index] = text;
-    setNotes(notes);
-    console.log(notes);
-  };
+  const handleAddButtonClick = () => setNotes(notes => [...notes, '']);
 
   return (
     <Container>
       <ContainerHeader>
         <p></p>
-        <AddButton onClick={hanldeAddButtonClick}>
+        <AddButton onClick={handleAddButtonClick}>
           <AiOutlinePlus /> Add Note
         </AddButton>
       </ContainerHeader>
 
       <NotesContainer>
         {notes.map((note, index) => (
-          <Note key={index} onDelete={hanldeDeleteButtonClick} index={index} onDescription={hanldeDescriptionChange} />
+          <Note key={index} onDelete={handleDeleteButtonClick} index={index} description={note} setNotes={setNotes} />
         ))}
       </NotesContainer>
     </Container>
