@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { colors } from '../constants/theme';
+import styled, { keyframes } from 'styled-components';
+import { colors, sizes } from '../constants/theme';
 
 export const Container = styled.div`
   max-width: 120rem;
@@ -24,13 +24,23 @@ export const Section = styled.section<{ bgColor?: string; textColor?: string }>`
   color: ${props => props.textColor || 'inherit'};
 `;
 
-export const CenterContainer = styled.div`
+export const CenterContainer = styled.div<{ color?: 'primary' | 'secondary' | 'slate' }>`
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(to bottom right, #ff8cba, #ffb5d3);
+  background: ${props => {
+    switch (props.color) {
+      case 'primary':
+        return 'linear-gradient(to bottom right, #2d6cdf, #98bcff)';
+      case 'slate':
+        return 'linear-gradient(to bottom right, #292929, #111)';
+      case 'secondary':
+      default:
+        return 'linear-gradient(to bottom right, #ff8cba, #ffb5d3)';
+    }
+  }};
 `;
 
 export const Button = styled.button<{ color: string }>`
@@ -46,10 +56,46 @@ export const Button = styled.button<{ color: string }>`
     }
   }};
   border: 1px solid currentColor;
+  border-radius: ${sizes.radius.small};
   padding: 0.6rem 1rem;
   font-family: inherit;
   font-size: inherit;
   font-weight: 800;
   text-transform: uppercase;
   cursor: pointer;
+`;
+
+const fadeInOut = keyframes`
+  0% {
+    bottom: 0;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  50% {
+    bottom: 6rem;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  100% {
+    bottom: 0;
+    opacity: 0;
+    visibility: hidden;
+  }
+`;
+
+export const Alert = styled.div<{ bgColor: string; color: string }>`
+  min-width: 40rem;
+  background-color: ${props => props.bgColor};
+  color: ${props => props.color};
+  border-radius: ${sizes.radius.small};
+  position: fixed;
+  left: 50%;
+  padding: 1rem;
+  transform: translateX(-50%);
+  text-align: center;
+  transition: all 0.4s;
+  visibility: hidden;
+  animation: ${fadeInOut} 3s;
 `;
