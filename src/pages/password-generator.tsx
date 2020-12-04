@@ -6,6 +6,7 @@ import { CenterContainer, Heading, Button, Alert } from '../components/Utilities
 import { colors, sizes } from '../constants/theme';
 import { initialOptions, reducer } from '../helpers/passgen-reducer';
 import { generatePassword } from '../functions/password-generator';
+import Head from 'next/head';
 
 export default function passwordGenerator() {
   const [password, setPassword] = useState<string>('');
@@ -26,69 +27,74 @@ export default function passwordGenerator() {
   };
 
   return (
-    <CenterContainer color='primary'>
-      <Frame>
-        <Heading small center>
-          Password Generator
-        </Heading>
-        <InputArea>
-          <Input
-            type='text'
-            onChange={({ target }) => {
-              const { value } = target;
-              setPassword(value);
-            }}
-            ref={textRef}
-            value={password}
-          />
-          <button
-            onClick={() => {
-              textRef.current?.select();
-              if (password === '') return;
-              setCopied(true);
-              document.execCommand('copy');
-              setTimeout(() => setCopied(false), 4000);
-            }}
-          >
-            <RiFileCopy2Line />
-          </button>
-        </InputArea>
-        <InputArea>
-          <p>Number of characters:</p>
-          <button onClick={() => dispatch('decrease')}>
-            <RiSubtractLine />
-          </button>
-          <Input type='text' readOnly value={options.noOfChars} />
-          <button onClick={() => dispatch('increase')}>
-            <RiAddLine />
-          </button>
-        </InputArea>
-        <InputArea>
-          <p>Allow Capital letters?</p>
-          <Input type='checkbox' onChange={() => dispatch('allowCaps')} checked={options.allowCaps} />
-        </InputArea>
-        <InputArea>
-          <p>Allow small letters?</p>
-          <Input type='checkbox' onChange={() => dispatch('allowSmall')} checked={options.allowSmall} />
-        </InputArea>
-        <InputArea>
-          <p>Allow numbers?</p>
-          <Input type='checkbox' onChange={() => dispatch('allowNumbers')} checked={options.allowNumbers} />
-        </InputArea>
-        <InputArea>
-          <p>Allow special characters?</p>
-          <Input type='checkbox' onChange={() => dispatch('allowSpecial')} checked={options.allowSpecial} />
-        </InputArea>
-        <Button color='secondary' onClick={handleSubmit}>
-          Generate
-        </Button>
-      </Frame>
-      {copied && (
-        <Alert color='white' bgColor='#00b029'>
-          Copied
-        </Alert>
-      )}
-    </CenterContainer>
+    <>
+      <Head>
+        <title>Password generator | 7 Days 50 Projects</title>
+      </Head>
+      <CenterContainer color='primary'>
+        <Frame>
+          <Heading small center>
+            Password Generator
+          </Heading>
+          <InputArea>
+            <Input
+              type='text'
+              onChange={({ target }) => {
+                const { value } = target;
+                setPassword(value);
+              }}
+              ref={textRef}
+              value={password}
+            />
+            <button
+              onClick={() => {
+                textRef.current?.select();
+                if (password === '') return;
+                setCopied(true);
+                document.execCommand('copy');
+                setTimeout(() => setCopied(false), 4000);
+              }}
+            >
+              <RiFileCopy2Line />
+            </button>
+          </InputArea>
+          <InputArea>
+            <p>Number of characters:</p>
+            <button onClick={() => dispatch('decrease')}>
+              <RiSubtractLine />
+            </button>
+            <Input type='text' readOnly value={options.noOfChars} />
+            <button onClick={() => dispatch('increase')}>
+              <RiAddLine />
+            </button>
+          </InputArea>
+          <InputArea>
+            <p>Allow Capital letters?</p>
+            <Input type='checkbox' onChange={() => dispatch('allowCaps')} checked={options.allowCaps} />
+          </InputArea>
+          <InputArea>
+            <p>Allow small letters?</p>
+            <Input type='checkbox' onChange={() => dispatch('allowSmall')} checked={options.allowSmall} />
+          </InputArea>
+          <InputArea>
+            <p>Allow numbers?</p>
+            <Input type='checkbox' onChange={() => dispatch('allowNumbers')} checked={options.allowNumbers} />
+          </InputArea>
+          <InputArea>
+            <p>Allow special characters?</p>
+            <Input type='checkbox' onChange={() => dispatch('allowSpecial')} checked={options.allowSpecial} />
+          </InputArea>
+          <Button color='secondary' onClick={handleSubmit}>
+            Generate
+          </Button>
+        </Frame>
+        {copied && (
+          <Alert color='white' bgColor='#00b029'>
+            Copied
+          </Alert>
+        )}
+      </CenterContainer>
+    </>
   );
 }
 
