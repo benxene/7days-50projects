@@ -1,9 +1,10 @@
+import { useState } from 'react';
 import Head from 'next/head';
 import styled, { keyframes } from 'styled-components';
 import { RiHome5Line, RiBuildingLine, RiArticleLine, RiUser2Line } from 'react-icons/ri';
 
 import { colors, sizes } from '../constants/theme';
-import { useState } from 'react';
+import { CenterContainer } from '../components/Utilities';
 
 export default function MobileTabNavigation() {
   const [activeTab, setActiveTab] = useState(1);
@@ -11,9 +12,9 @@ export default function MobileTabNavigation() {
   return (
     <>
       <Head>
-        <title>Mobile tabbed navigation</title>
+        <title>Mobile tabbed navigation | 7 Days 50 Projects</title>
       </Head>
-      <Container>
+      <CenterContainer>
         <Frame>
           <Display>{activeTab === 1 && <Content>Home page</Content>}</Display>
           <Display>{activeTab === 2 && <Content>Work page</Content>}</Display>
@@ -39,7 +40,7 @@ export default function MobileTabNavigation() {
             </NavItem>
           </TabNav>
         </Frame>
-      </Container>
+      </CenterContainer>
     </>
   );
 }
@@ -51,15 +52,6 @@ const Frame = styled.main`
   border-radius: ${sizes.radius.medium};
   position: relative;
   overflow: hidden;
-`;
-
-const Container = styled.div`
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(to bottom right, #ff8cba, #ffb5d3);
 `;
 
 const Display = styled.div`
