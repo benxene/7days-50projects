@@ -10,7 +10,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <Head>
         <link rel='icon' href='favicon.png' sizes='16x16 28x28 32x32' type='image/png' />
         <link rel='preconnect' href='https://fonts.gstatic.com' />
-        <link href='https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;800&display=swap' rel='stylesheet' />
+        <link href='https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;800&display=swap' rel='stylesheet' />
       </Head>
       <GlobalStyle />
       <Component {...pageProps} />
