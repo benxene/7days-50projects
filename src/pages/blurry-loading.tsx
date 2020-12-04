@@ -44,9 +44,12 @@ const Container = styled.div`
   justify-content: center;
 `;
 
-const TextContainer = styled.div<{ scale: any; load: number }>`
+const TextContainer = styled.div<{
+  scale: (num: number, in_min: number, in_max: number, out_min: number, out_max: number) => number;
+  load: number;
+}>`
   background: url('blurry-load-img.jpg') no-repeat center center/cover;
-  filter: blur(${props => props.scale(props.load, 0, 100, 30, 0)}px);
+  filter: blur(${props => Number(props.scale(props.load, 0, 100, 30, 0))}px);
   position: absolute;
   top: 0;
   left: 0;
