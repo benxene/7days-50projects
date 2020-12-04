@@ -24,7 +24,7 @@ const Card = styled.div<{ image: string }>`
   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${props => props.image});
   background-size: cover;
   background-position: center center;
-  border-radius: ${sizes.radius};
+  border-radius: ${sizes.radius.small};
   box-shadow: ${sizes.shadows.light} rgba(0, 0, 0, 0.4);
   transition: all 0.2s;
   overflow: hidden;
