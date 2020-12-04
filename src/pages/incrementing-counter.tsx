@@ -63,6 +63,7 @@ const Frame = styled.main`
   @media (max-width: 40rem) {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(3, 1fr);
+    transform: scale(0.9);
   }
 `;
 
