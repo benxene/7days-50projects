@@ -2,14 +2,28 @@ import { useReducer, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { RiFileCopy2Line, RiAddLine, RiSubtractLine } from 'react-icons/ri';
 
-import { CenterContainer, Heading, Button } from '../components/Utilities';
+import { CenterContainer, Heading, Button, Alert } from '../components/Utilities';
 import { colors, sizes } from '../constants/theme';
 import { initialOptions, reducer } from '../helpers/passgen-reducer';
+import { generatePassword } from '../functions/password-generator';
 
 export default function passwordGenerator() {
   const [password, setPassword] = useState<string>('');
   const [options, dispatch] = useReducer(reducer, initialOptions);
+  const [copied, setCopied] = useState<boolean>(false);
   const textRef = useRef<HTMLInputElement>(null);
+
+  const handleSubmit = () => {
+    setPassword(
+      generatePassword(
+        options.allowSmall,
+        options.allowCaps,
+        options.allowNumbers,
+        options.allowSpecial,
+        options.noOfChars
+      )
+    );
+  };
 
   return (
     <CenterContainer color='primary'>
@@ -30,7 +44,10 @@ export default function passwordGenerator() {
           <button
             onClick={() => {
               textRef.current?.select();
+              if (password === '') return;
+              setCopied(true);
               document.execCommand('copy');
+              setTimeout(() => setCopied(false), 4000);
             }}
           >
             <RiFileCopy2Line />
@@ -62,8 +79,15 @@ export default function passwordGenerator() {
           <p>Allow special characters?</p>
           <Input type='checkbox' onChange={() => dispatch('allowSpecial')} checked={options.allowSpecial} />
         </InputArea>
-        <Button color='secondary'>Generate</Button>
+        <Button color='secondary' onClick={handleSubmit}>
+          Generate
+        </Button>
       </Frame>
+      {copied && (
+        <Alert color='white' bgColor='#00b029'>
+          Copied
+        </Alert>
+      )}
     </CenterContainer>
   );
 }

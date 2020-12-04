@@ -15,6 +15,11 @@ export function getRandomSymbol() {
   return symbols[Math.floor(Math.random() * symbols.length)];
 }
 
+function shuffleStringArray(array: Array<string>): Array<string> {
+  let cloneArray = [...array];
+  return cloneArray.sort(() => Math.random() - 0.5);
+}
+
 export function generatePassword(
   hasLower: boolean,
   hasUpper: boolean,
@@ -22,10 +27,37 @@ export function generatePassword(
   hasSymbols: boolean,
   length: number
 ) {
-  let password = '';
   if (!(hasLower || hasUpper || hasNumbers || hasSymbols)) {
-    return password;
+    return '';
   }
 
-  for (let i = 0; i <= length; i++) {}
+  const typesCount = Number(hasLower) + Number(hasUpper) + Number(hasNumbers) + Number(hasSymbols);
+  const eachLength = Math.ceil(length / typesCount);
+
+  const eachCount = {
+    lower: hasLower ? eachLength : 0,
+    upper: hasUpper ? eachLength : 0,
+    numbers: hasNumbers ? eachLength : 0,
+    symbols: hasSymbols ? eachLength : 0
+  };
+
+  let passwordArray: Array<string> = [];
+
+  for (let i = 0; i < eachCount.lower; i++) {
+    passwordArray.push(getRandomLower());
+  }
+  for (let i = 0; i < eachCount.upper; i++) {
+    passwordArray.push(getRandomUpper());
+  }
+  for (let i = 0; i < eachCount.numbers; i++) {
+    passwordArray.push(getRandomNumber());
+  }
+  for (let i = 0; i < eachCount.symbols; i++) {
+    passwordArray.push(getRandomSymbol());
+  }
+
+  const generatedPasswordArray = shuffleStringArray(passwordArray);
+  generatedPasswordArray.length = length;
+
+  return generatedPasswordArray.join('');
 }
