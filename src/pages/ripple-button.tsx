@@ -9,7 +9,7 @@ export default function RippleButtonPage() {
         <title>Ripple Button | 7 Days 50 Projects</title>
       </Head>
       <CenterContainer>
-        <RippleButton />
+        <RippleButton>Click me</RippleButton>
       </CenterContainer>
     </>
   );
