@@ -19,10 +19,10 @@ export default function ProgressStep() {
       <Section>
         <Main>
           <Bar style={{ width: `${(step - 1) * 33.33}%` }}></Bar>
-          <Step style={step >= 1 ? { borderColor: '#fc5c9c' } : { borderColor: '#e0e0e0' }}>1</Step>
-          <Step style={step >= 2 ? { borderColor: '#fc5c9c' } : { borderColor: '#e0e0e0' }}>2</Step>
-          <Step style={step >= 3 ? { borderColor: '#fc5c9c' } : { borderColor: '#e0e0e0' }}>3</Step>
-          <Step style={step >= 4 ? { borderColor: '#fc5c9c' } : { borderColor: '#e0e0e0' }}>4</Step>
+          <Step active={step >= 1}>1</Step>
+          <Step active={step >= 2}>2</Step>
+          <Step active={step >= 3}>3</Step>
+          <Step active={step >= 4}>4</Step>
         </Main>
         <ButtonContainer>
           <button
@@ -93,7 +93,7 @@ const ButtonContainer = styled.div`
   }
 `;
 
-const Step = styled.div`
+const Step = styled.div<{ active: boolean }>`
   background-color: #fff;
   color: #999;
   border-radius: 50%;
@@ -102,7 +102,7 @@ const Step = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 3px solid #e0e0e0;
+  border: 3px solid ${props => (props.active ? '#fc5c9c' : '#e0e0e0')};
   z-index: 3;
   transition: 0.4s ease;
 `;
