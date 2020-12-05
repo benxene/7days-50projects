@@ -2,7 +2,7 @@ import { useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { colors } from '../constants/theme';
 
-export default function RippleButton() {
+export default function RippleButton({ children, onClick }: { children: React.ReactNode; onClick?: CallableFunction }) {
   const [rippleVisible, setRippleVisibility] = useState<boolean>(false);
   const [rippleCoOrdinates, setCoOrdinates] = useState({ x: 0, y: 0 });
 
@@ -17,9 +17,16 @@ export default function RippleButton() {
   };
 
   return (
-    <Button onClick={addRipple}>
+    <Button
+      onClick={event => {
+        addRipple(event);
+        if (onClick) {
+          onClick(event);
+        }
+      }}
+    >
       {rippleVisible && <Ripple x={rippleCoOrdinates.x} y={rippleCoOrdinates.y} />}
-      Click me
+      {children}
     </Button>
   );
 }
@@ -38,6 +45,12 @@ const Button = styled.button`
   cursor: pointer;
   position: relative;
   overflow: hidden;
+  transition: all 0.3s;
+
+  &:active {
+    transform: translateY(2px);
+    box-shadow: 0 0.3rem 0.3rem rgba(0, 0, 0, 0.4);
+  }
 
   &:focus {
     outline: none;
