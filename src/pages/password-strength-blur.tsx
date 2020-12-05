@@ -62,10 +62,10 @@ const CustomContainer = styled.div`
 
 const Background = styled.div`
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  top: -3rem;
+  left: -3rem;
+  right: -3rem;
+  bottom: -3rem;
   z-index: -1;
   background-image: url(https://source.unsplash.com/HN3-ehlNwsc/1920x1280);
   background-size: cover;
@@ -109,6 +109,10 @@ const Input = styled.input`
   border: 1px solid ${colors.lightSlate};
   border-radius: 2px;
   background-color: transparent;
+
+  &::placeholder {
+    color: ${colors.lightSlate};
+  }
 
   &:focus,
   &:active {
