@@ -1,11 +1,15 @@
 import styled, { keyframes } from 'styled-components';
 import { colors, sizes } from '../constants/theme';
 
-export const Container = styled.div`
-  max-width: 120rem;
+export const Container = styled.div<{ maxWidth?: string }>`
+  max-width: ${props => props.maxWidth || '100rem'};
   margin: 0 auto;
 
-  @media (max-width: 100rem) {
+  @media (max-width: 80rem) {
+    max-width: 85%;
+  }
+
+  @media (max-width: 60rem) {
     max-width: 90%;
   }
 `;
