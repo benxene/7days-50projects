@@ -45,6 +45,8 @@ const Label = styled.label`
 
 const Check = styled.input`
   visibility: hidden;
+  display: none;
+
   &:checked + label {
     border-color: ${colors.primary};
 
