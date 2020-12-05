@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import Head from 'next/head';
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 
 import { CenterContainer } from '../components/Utilities';
 import { colors } from '../constants/theme';
