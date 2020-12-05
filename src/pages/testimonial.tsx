@@ -18,11 +18,11 @@ export default function Testimonial() {
       }
       return curIndex + 1;
     });
-    setTimeout(nextIndex, 4990);
+    setTimeout(nextIndex, 5000);
   };
 
   useEffect(() => {
-    setTimeout(nextIndex, 4990);
+    setTimeout(nextIndex, 5000);
   }, []);
 
   return (
