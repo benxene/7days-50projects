@@ -1,33 +1,14 @@
 import styled from 'styled-components';
 import Head from 'next/head';
+import { useEffect, useRef, useState } from 'react';
+
 import { CenterContainer } from '../components/Utilities';
-import { useEffect, useState } from 'react';
 import { colors } from '../constants/theme';
 import Button from '../components/RippleButton';
 
 export default function SplitLandingPage() {
-  const [cursorInLeft, setCursorInLeft] = useState<boolean>(true);
+  const [cursorInLeft, setCursorInLeft] = useState<boolean>();
   const [cursorInRight, setCursorInRight] = useState<boolean>();
-
-  useEffect(() => {
-    const left = document.querySelector('.left');
-
-    left?.addEventListener('mouseenter', () => {
-      setCursorInLeft(true);
-    });
-    left?.addEventListener('mouseleave', () => {
-      setCursorInLeft(false);
-    });
-
-    const right = document.querySelector('.right');
-
-    right?.addEventListener('mouseenter', () => {
-      setCursorInRight(true);
-    });
-    right?.addEventListener('mouseleave', () => {
-      setCursorInRight(false);
-    });
-  }, []);
 
   return (
     <>
@@ -36,6 +17,12 @@ export default function SplitLandingPage() {
       </Head>
       <WholeContainer>
         <LeftContainer
+          onMouseEnter={() => {
+            setCursorInLeft(true);
+          }}
+          onMouseLeave={() => {
+            setCursorInLeft(false);
+          }}
           className='left'
           style={cursorInLeft ? { width: '75vw' } : cursorInRight ? { width: '25vw' } : {}}
         >
@@ -43,6 +30,12 @@ export default function SplitLandingPage() {
           <Button>Buy Now</Button>
         </LeftContainer>
         <RightContainer
+          onMouseEnter={() => {
+            setCursorInRight(true);
+          }}
+          onMouseLeave={() => {
+            setCursorInRight(false);
+          }}
           className='right'
           style={cursorInRight ? { width: '75vw' } : cursorInLeft ? { width: '25vw' } : {}}
         >
