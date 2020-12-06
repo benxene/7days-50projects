@@ -125,7 +125,8 @@ const FormComponent = styled.div`
       border-bottom-color: lightblue;
     }
 
-    &:focus + label span {
+    &:focus + label span,
+    &:valid + label span {
       color: lightblue;
       transform: translateY(-30px);
     }
