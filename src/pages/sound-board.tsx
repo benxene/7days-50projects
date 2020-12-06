@@ -14,6 +14,7 @@ export default function SoundBoard() {
   const playMusic = () => {
     musicRef.current = new Audio(`/sounds/${sounds[active]}.mp3`);
     musicRef.current.play();
+    setActive(null);
   };
 
   useEffect(() => {
