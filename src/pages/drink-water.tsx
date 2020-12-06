@@ -59,6 +59,7 @@ export default function DrinkWater() {
 
 const WaterContainer = styled(CenterContainer)`
   height: 100%;
+  padding: 1rem;
 `;
 
 const MyHeading = styled(Heading)`
@@ -102,8 +103,8 @@ const Percentage = styled.div<{ ml: number }>`
 `;
 
 const CupsContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(5, 8rem);
+  display: flex;
+  flex-wrap: wrap;
   margin-bottom: 2rem;
 `;
 
