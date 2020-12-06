@@ -15,7 +15,7 @@ export default function InstaPost({ avatar, name, image }: IPost) {
   useEffect(() => {
     if (likes === 0) return;
     setJustLiked(true);
-    setTimeout(() => setJustLiked(false), 1000);
+    setTimeout(() => setJustLiked(false), 500);
   }, [likes]);
 
   const increaseLikes = () => {
