@@ -13,6 +13,7 @@ export default function InstaPost({ avatar, name, image }: IPost) {
   const [heartPosition, setHeartPosition] = useState({ x: '50%', y: '50%' });
 
   useEffect(() => {
+    if (likes === 0) return;
     setJustLiked(true);
     setTimeout(() => setJustLiked(false), 1000);
   }, [likes]);
@@ -21,7 +22,11 @@ export default function InstaPost({ avatar, name, image }: IPost) {
     setLikes(noOfLikes => noOfLikes + 1);
   };
 
-  const showHeart = (event: any) => {
+  const showHeart = (event?: any) => {
+    if (!event) {
+      return setHeartPosition({ y: '50%', x: '50%' });
+    }
+
     const x = event.clientX;
     const y = event.clientY;
 
@@ -32,15 +37,20 @@ export default function InstaPost({ avatar, name, image }: IPost) {
     const yInside = y - topOffset;
 
     setHeartPosition({ y: `${yInside}px`, x: `${xInside}px` });
-    increaseLikes();
   };
 
-  const handleTap = (event: any) => {
+  const handleTap = (event?: any) => {
+    if (!event) {
+      showHeart();
+      return increaseLikes();
+    }
+
     if (clickTime === 0) {
       setClickTime(new Date().getTime());
     } else {
       if (new Date().getTime() - clickTime < 800) {
         showHeart(event);
+        increaseLikes();
         setClickTime(0);
       } else {
         setClickTime(new Date().getTime());
@@ -53,7 +63,7 @@ export default function InstaPost({ avatar, name, image }: IPost) {
       <CardHeader avatar={avatar} name={name} />
       <PostImage src={image} width='100%' height='auto' loading='lazy' alt={name} unoptimized onClick={handleTap} />
       <CardActions>
-        <Likes isLiked={likes > 0} onClick={increaseLikes}>
+        <Likes isLiked={likes > 0} onClick={() => handleTap()}>
           {likes === 0 ? (
             <RiHeart2Line />
           ) : (
@@ -162,8 +172,8 @@ const Heart = styled.div<{ top: string; left: string }>`
     left: ${props => props.left || '50%'};
     background-color: #f81244;
     transform: translate(-50%, -50%) rotate(-45deg) scale(0);
-    transition: all 0.4s;
-    animation: ${grow} 0.8s linear;
+    animation: ${grow} 0.5s linear;
+    cursor: pointer;
   }
 
   &::before,
