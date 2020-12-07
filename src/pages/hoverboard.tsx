@@ -4,6 +4,23 @@ import styled from 'styled-components';
 
 const colors = ['#e74c3c', '#8e44ad', '#3498db', '#e67e22', '#2ecc71'];
 
+export default function HoverBoard() {
+  return (
+    <>
+      <Head>
+        <title>Hover Board | 7 days 50 projects</title>
+      </Head>
+      <Section>
+        <Main>
+          {[...new Array(500)].map((val, ind: number) => {
+            return <Box key={ind} ind={ind} />;
+          })}
+        </Main>
+      </Section>
+    </>
+  );
+}
+
 function getRandomColor() {
   return colors[Math.floor(Math.random() * colors.length)];
 }
@@ -26,24 +43,7 @@ function Box({ ind }: BoxProps) {
     cardRef.current.style.boxShadow = '0 0 2px #000';
   }
 
-  return <Card  ref={cardRef} onMouseOver={setColor} onMouseOut={removeColor} />;
-}
-
-export default function HoverBoard() {
-  return (
-    <>
-      <Head>
-        <title>Hover Board | 7 days 50 projects</title>
-      </Head>
-      <Section>
-        <Main>
-          {[...new Array(500)].map((val, ind: number) => {
-            return <Box key={ind} ind={ind} />;
-          })}
-        </Main>
-      </Section>
-    </>
-  );
+  return <Card ref={cardRef} onMouseOver={setColor} onMouseOut={removeColor} />;
 }
 
 const Section = styled.section`
