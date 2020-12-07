@@ -26,7 +26,7 @@ function Box({ ind }: BoxProps) {
     cardRef.current.style.boxShadow = '0 0 2px #000';
   }
 
-  return <Card key={ind} ref={cardRef} onMouseOver={setColor} onMouseOut={removeColor} />;
+  return <Card  ref={cardRef} onMouseOver={setColor} onMouseOut={removeColor} />;
 }
 
 export default function HoverBoard() {
@@ -38,7 +38,7 @@ export default function HoverBoard() {
       <Section>
         <Main>
           {[...new Array(500)].map((val, ind: number) => {
-            return <Box ind={ind} />;
+            return <Box key={ind} ind={ind} />;
           })}
         </Main>
       </Section>
