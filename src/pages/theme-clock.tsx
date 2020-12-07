@@ -31,7 +31,7 @@ export default function ThemeClock() {
           <CgDarkMode />
         </DarkThemeToggleButton>
         <AnalogueClock dark={isDark}>
-          <HourNeedle dark={isDark} hour={time.getHours()} />
+          <HourNeedle dark={isDark} hour={time.getHours()} minute={time.getMinutes()} />
           <MinuteNeedle dark={isDark} minute={time.getMinutes()} />
           <SecondNeedle dark={isDark} second={time.getSeconds()} />
         </AnalogueClock>
@@ -82,7 +82,7 @@ const AnalogueClock = styled.div<{ dark: boolean }>`
   transition: all 0.3s;
 `;
 
-const HourNeedle = styled.div<{ dark: boolean; hour: number }>`
+const HourNeedle = styled.div<{ dark: boolean; hour: number; minute: number }>`
   width: 8rem;
   height: 4px;
   position: absolute;
@@ -91,9 +91,9 @@ const HourNeedle = styled.div<{ dark: boolean; hour: number }>`
   transform-origin: left;
   background-color: ${({ dark }) => (dark ? colors.contrast.primary : colors.darkSlate)};
   transform: rotate(
-    ${({ hour }) => {
+    ${({ hour, minute }) => {
       let temp = hour >= 12 ? hour - 12 : hour;
-      return temp * 30;
+      return temp * 30 + minute * 0.5;
     }}deg
   );
   transition: all 0.3s;
