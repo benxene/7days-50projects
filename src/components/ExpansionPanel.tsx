@@ -53,8 +53,9 @@ const Question = styled.div`
 `;
 
 const Answer = styled.div<{ active: boolean }>`
-  padding: ${({ active }) => (active ? '2rem 0' : '0')};
+  margin-top: ${({ active }) => (active ? '2rem' : 0)};
   max-height: ${({ active }) => (active ? 'auto' : 0)};
+  opacity: ${({ active }) => (active ? 1 : 0)};
   overflow: hidden;
   transition: all 0.3s ease;
   & > p {
