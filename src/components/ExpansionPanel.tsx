@@ -1,7 +1,8 @@
 import styled from 'styled-components';
-import { useState, useEffect, useRef } from 'react';
+import { useState } from 'react';
 
 import { VscChevronDown, VscError } from 'react-icons/vsc';
+import { sizes } from '../constants/theme';
 
 interface faqProps {
   ind: number;
@@ -12,21 +13,13 @@ interface faqProps {
 export default function ExpansionPanel({ ind, question, answer }: faqProps) {
   const [open, setOpen] = useState(false);
 
-  const contentRef = useRef<any>(null);
-
-  useEffect(() => {
-    if (contentRef.current) {
-      contentRef.current.style.maxHeight = open ? `${contentRef.current.scrollHeight}px` : '0px';
-    }
-  }, [contentRef, open]);
-
   return (
     <Container key={ind} onClick={() => setOpen(old => !old)}>
-      <Question active={open}>
+      <Question>
         <h6>{question}</h6>
         {open ? <VscError /> : <VscChevronDown />}
       </Question>
-      <Answer ref={contentRef}>
+      <Answer active={open}>
         <p>{answer}</p>
       </Answer>
     </Container>
@@ -38,19 +31,17 @@ const Container = styled.div`
   width: 100%;
   margin: 2rem 0;
   padding: 2rem 3rem;
-  border-radius: 1rem;
+  border-radius: ${sizes.radius.small};
   cursor: pointer;
 `;
 
-const Question = styled.div<{ active: boolean }>`
+const Question = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: ${props => (props.active ? '2rem' : '1rem')};
 
   & svg {
     font-size: 30px;
-    font-weight: bold;
     margin-left: 4rem;
   }
 
@@ -60,12 +51,12 @@ const Question = styled.div<{ active: boolean }>`
   }
 `;
 
-const Answer = styled.div`
-  transition: all 1s;
+const Answer = styled.div<{ active: boolean }>`
+  padding: ${({ active }) => (active ? '2rem 0' : '0')};
+  max-height: ${({ active }) => (active ? '5rem' : 0)};
   overflow: hidden;
-  transition: max-height 0.4s ease;
-
-  & p {
+  transition: all 0.3s ease;
+  & > p {
     color: #d6d6d6;
   }
 `;
