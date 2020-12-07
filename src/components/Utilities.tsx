@@ -106,3 +106,9 @@ export const Alert = styled.div<{ bgColor: string; color: string }>`
   visibility: hidden;
   animation: ${fadeInOut} 3s;
 `;
+
+export const ThemedCenterContainer = styled(CenterContainer)<{ dark: boolean }>`
+  background-color: ${({ dark }) => (dark ? colors.darkSlate : '#fff')};
+  color: ${({ dark }) => (dark ? colors.contrast.primary : colors.darkSlate)};
+  transition: all 0.4s;
+`;

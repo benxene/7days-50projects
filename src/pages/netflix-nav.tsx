@@ -63,7 +63,7 @@ export default function NetflixNavigation() {
   );
 }
 
-const IconButton = styled.button`
+export const IconButton = styled.button`
   border: none;
   background-color: transparent;
   cursor: pointer;
