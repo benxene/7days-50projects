@@ -36,13 +36,14 @@ const Container = styled.div`
 `;
 
 const Question = styled.div`
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr max-content;
+  grid-gap: 2rem;
   align-items: center;
 
   & svg {
-    font-size: 30px;
-    margin-left: 4rem;
+    flex-basis: 3rem;
+    font-size: 2.8rem;
   }
 
   & h6 {
