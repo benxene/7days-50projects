@@ -58,11 +58,15 @@ const Section = styled.section`
 `;
 
 const Main = styled.div`
-  max-width: 400px;
+  max-width: calc(20 * 1.5rem + 20 * 4px);
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
   display: flex;
+
+  @media (max-width: 500px) {
+    max-width: calc(10 * 1.5rem + 10 * 4px);
+  }
 `;
 
 const Card = styled.div`
