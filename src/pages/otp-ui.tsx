@@ -8,10 +8,10 @@ export default function OTP() {
   const references = useRef<any>([]);
 
   const keyDownHandler = (e: KeyboardEvent, idx: number) => {
-    if (Number(e.key) >= 0 && Number(e.key) <= 9) {
+    if ((Number(e.key) >= 0 && Number(e.key) <= 9) || e.key === 'ArrowRight') {
       if (idx === 5) return;
       setTimeout(() => references.current[idx + 1].focus(), 10);
-    } else if (e.key === 'Backspace') {
+    } else if (e.key === 'Backspace' || e.key === 'ArrowLeft') {
       if (idx === 0) return;
       setTimeout(() => references.current[idx - 1].focus(), 10);
     }
