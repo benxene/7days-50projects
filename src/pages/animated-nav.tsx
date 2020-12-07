@@ -1,8 +1,9 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 import Head from 'next/head';
+
 import { Section } from '../components/Utilities';
 import { colors } from '../constants/theme';
-import { useState } from 'react';
 
 export default function AnimatedNav() {
   const [click, setClick] = useState<boolean>(true);
@@ -13,12 +14,12 @@ export default function AnimatedNav() {
         <title>Animated NavBar | 7 days 50 projects</title>
       </Head>
       <MySection>
-        <CenterNav style={click ? {} : { width: '5rem' }}>
+        <CenterNav style={click ? {} : { width: '6rem' }}>
           <CenterNavLinks
             style={
               click
-                ? { width: '28rem', opacity: '1', transform: 'rotateY(360deg)' }
-                : { width: '0rem', opacity: '0', padding: '0', transform: 'rotateY(0deg)' }
+                ? { width: '28rem', opacity: '1', transform: 'translateX(360deg)' }
+                : { width: '0rem', opacity: '0', padding: '0', transform: 'translateX(0deg)' }
             }
           >
             <li>Home</li>
@@ -67,7 +68,8 @@ const CenterNavLinks = styled.ul`
   flex-direction: row;
   align-items: center;
   padding-left: 1rem;
-  transition: all 1s;
+  transition: all 0.5s linear;
+  overflow: hidden;
 
   li {
     margin: 1rem;
@@ -78,7 +80,7 @@ const CenterNavLinks = styled.ul`
 const CloseButton = styled.button`
   background-color: transparent;
   border: none;
-  margin-left: 1.5rem;
+  margin: auto;
   cursor: pointer;
 
   :focus,
@@ -101,13 +103,13 @@ const Line = styled.div<{ click: boolean }>`
     position: absolute;
     top: 0.8rem;
     left: 0.2rem;
-    transform: ${props => (props.click ? 'rotate(-765deg) translateY(6.5px)' : 'none')};
+    transform: ${props => (props.click ? 'rotate(-765deg) translateY(6px)' : 'none')};
     transition: transform 1s;
   }
 
   ::after {
     top: auto;
     bottom: 0.7rem;
-    transform: ${props => (props.click ? 'rotate(765deg) translateY(-6.5px)' : 'none')};
+    transform: ${props => (props.click ? 'rotate(765deg) translateY(-6px)' : 'none')};
   }
 `;
