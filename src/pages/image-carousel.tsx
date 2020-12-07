@@ -92,6 +92,7 @@ const ImageContainer = styled.div`
 
   img {
     object-fit: cover;
+    object-position: center;
   }
 `;
 
