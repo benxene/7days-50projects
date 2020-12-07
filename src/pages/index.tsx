@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import styled from 'styled-components';
 
+import Nav from '../components/NavigationBar';
 import { Container, Heading, Section } from '../components/Utilities';
 import Project from '../components/Project';
 import { colors } from '../constants/theme';
@@ -11,8 +12,9 @@ export default function Home() {
       <Head>
         <title>7 Days 50 Projects</title>
       </Head>
+      <Nav />
       <Hero>
-        <Heading>7 Days 50 Projects</Heading>
+        <Heading center>7 Days 50 Projects</Heading>
         <p>using Next JS and styled-components</p>
       </Hero>
       <Section>
