@@ -14,7 +14,7 @@ export default function FormWave() {
           <h1>Please Login</h1>
           <form action='/'>
             <FormComponent>
-              <input type='text' required />
+              <input type='email' placeholder='email' required />
               <label>
                 <span style={{ transitionDelay: '0ms' }}>E</span>
                 <span style={{ transitionDelay: '50ms' }}>m</span>
@@ -24,7 +24,7 @@ export default function FormWave() {
               </label>
             </FormComponent>
             <FormComponent>
-              <input type='password' required />
+              <input type='password' placeholder='password' required />
               <label>
                 <span style={{ transitionDelay: '0ms' }}>P</span>
                 <span style={{ transitionDelay: '50ms' }}>a</span>
@@ -125,8 +125,13 @@ const FormComponent = styled.div`
       border-bottom-color: lightblue;
     }
 
+    &::placeholder {
+      color: transparent;
+    }
+
     &:focus + label span,
-    &:valid + label span {
+    &:valid + label span,
+    &:not(:placeholder-shown) + label span {
       color: lightblue;
       transform: translateY(-30px);
     }
