@@ -7,14 +7,14 @@ export default function BlurryLoading() {
   let [load, setLoad] = useState<number>(0);
 
   useEffect(() => {
-    function loading() {
+    setLoad(oldValue => {
       if (load > 99) {
-        clearInterval(int);
+        return oldValue;
+      } else {
+        return oldValue + 1;
       }
-      setLoad(() => load++);
-    }
-    let int = setInterval(loading, 30);
-  }, []);
+    });
+  }, [load]);
 
   return (
     <>
@@ -34,7 +34,8 @@ export default function BlurryLoading() {
 }
 
 const calcIntensity = (num: number, in_min: number, in_max: number, out_min: number, out_max: number) => {
-  return ((num - in_min) * (out_max - out_min)) / (in_max - in_min) + out_min;
+  const intensity = ((num - in_min) * (out_max - out_min)) / (in_max - in_min) + out_min;
+  return intensity;
 };
 
 const Container = styled.div`
@@ -42,16 +43,18 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  overflow: hidden;
 `;
 
 const TextContainer = styled.div<{ scale: number; load: number }>`
   background: url('blurry-load-img.jpg') no-repeat center center/cover;
   filter: blur(${props => props.scale}px);
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+  top: -3rem;
+  left: -3rem;
+  right: -3rem;
+  bottom: -3rem;
 `;
 
 const Text = styled.div<{ scale: number; load: number }>`
