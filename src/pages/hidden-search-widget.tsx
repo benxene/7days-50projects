@@ -1,9 +1,9 @@
+import { useState } from 'react';
 import Head from 'next/head';
 import styled from 'styled-components';
 import { FaSearch } from 'react-icons/fa';
 
 import { colors } from '../constants/theme';
-import { useState } from 'react';
 
 export default function HiddenWidget() {
   const [click, setClick] = useState<boolean>(false);
@@ -14,10 +14,10 @@ export default function HiddenWidget() {
       </Head>
       <MyContainer>
         <SearchContainer>
-          <Input id='search' type='text' placeholder='Search...' style={click ? { width: '23rem' } : undefined} />
-          <Label htmlFor='search' onClick={() => (click ? setClick(false) : setClick(true))}>
+          <Input id='search' type='text' placeholder='Search...' style={click ? { width: '23rem' } : {}} />
+          <SearchButton htmlFor='search' onClick={() => setClick(!click)}>
             <FaSearch />
-          </Label>
+          </SearchButton>
         </SearchContainer>
       </MyContainer>
     </>
@@ -49,12 +49,19 @@ const Input = styled.input`
   transition: 0.3s ease;
 `;
 
-const Label = styled.label`
+const SearchButton = styled.label`
   position: absolute;
-  padding: 1rem;
+  padding: 1rem 1.2rem;
   background-color: ${colors.contrast.primary};
+  border-radius: 2px;
   right: 2px;
   cursor: pointer;
+  display: inline-flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
   svg {
     font-size: 2rem;
   }
