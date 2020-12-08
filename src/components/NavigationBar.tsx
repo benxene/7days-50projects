@@ -33,6 +33,7 @@ const Nav = styled.nav<{ isScrolled: boolean }>`
   display: flex;
   flex-direction: row-reverse;
   transition: all 0.3s;
+  z-index: 100;
 
   & > *:not(:first-child) {
     display: inline-block;

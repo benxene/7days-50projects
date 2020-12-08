@@ -8,7 +8,7 @@ export default function Project({ image, day, children: title, link }: IProps) {
     <Card image={image}>
       <Title>{title}</Title>
       <InfoPanel>
-        <p className='day'>{`Day ${day}`}</p>
+        <p className='day'>{`# ${day}`}</p>
         <LinkGroup>
           <LinkIcon />
           <Link href={link}>Link</Link>
@@ -25,28 +25,34 @@ const Card = styled.div<{ image: string }>`
   background-size: cover;
   background-position: center center;
   border-radius: ${sizes.radius.small};
-  box-shadow: ${sizes.shadows.light} rgba(0, 0, 0, 0.4);
+  box-shadow: 0 3px 0.5rem rgba(0, 0, 0, 0.3);
   transition: all 0.2s;
   overflow: hidden;
   position: relative;
 
   &:hover {
-    transform: scale(1.05);
-    box-shadow: ${sizes.shadows.big} rgba(0, 0, 0, 0.4);
+    transform: scale(1.03);
+    box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.6);
+
+    & > div {
+      transform: translateY(0);
+    }
   }
 `;
 
 const Title = styled.h2`
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 800;
-  color: ${colors.contrast.darkSlate};
+  color: ${colors.secondary};
   text-shadow: 0 0 3px #000;
   position: absolute;
   top: 50%;
   left: 50%;
   width: 100%;
+  padding: 0.5rem;
   text-align: center;
   transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.4);
 `;
 
 const InfoPanel = styled.div`
@@ -58,6 +64,9 @@ const InfoPanel = styled.div`
   background-color: rgba(0, 0, 0, 0.7);
   color: ${colors.contrast.primary};
   display: flex;
+  transition: all 0.2s;
+  transform: translateY(100%);
+
   & > p {
     margin-right: auto;
   }

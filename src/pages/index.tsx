@@ -1,12 +1,17 @@
 import Head from 'next/head';
 import styled from 'styled-components';
+import fs from 'fs';
 
 import Nav from '../components/NavigationBar';
 import { Container, Heading, Section } from '../components/Utilities';
 import Project from '../components/Project';
 import { colors } from '../constants/theme';
+import { GetServerSideProps } from 'next';
+import { useEffect } from 'react';
 
-export default function Home() {
+export default function Home({ apps }: any) {
+  useEffect(() => console.log(apps), []);
+
   return (
     <>
       <Head>
@@ -21,12 +26,13 @@ export default function Home() {
         <Container>
           <Heading center>Index</Heading>
           <ProjectsGrid>
-            <Project day={1} image='index.png' link='#'>
-              Index page
-            </Project>
-            <Project day={1} image='index.png' link='#'>
-              Index page
-            </Project>
+            {apps.map((app: { file: string; name: string }, num: number) => {
+              return (
+                <Project day={num} key={app.file} image={`screenshots/${app.file}.png`} link={app.file}>
+                  {app.name}
+                </Project>
+              );
+            })}
           </ProjectsGrid>
         </Container>
       </Section>
@@ -38,6 +44,28 @@ export default function Home() {
     </>
   );
 }
+
+export const getServerSideProps: GetServerSideProps = async _ => {
+  let files = fs.readdirSync('./src/pages');
+  files = files.map((file, _) => {
+    return file.replace('.tsx', '');
+  });
+
+  files.splice(files.indexOf('_app'), 1);
+
+  const apps = files.map((file, _) => {
+    let name = file.replace(/-/g, ' ');
+    if (name === 'index') name = 'Sticky nav';
+    name = name.charAt(0).toUpperCase() + name.substr(1);
+    return { name, file };
+  });
+
+  return {
+    props: {
+      apps
+    }
+  };
+};
 
 const Hero = styled.div`
   height: 100vh;
@@ -54,5 +82,5 @@ const ProjectsGrid = styled.div`
   place-content: center;
   grid-template-columns: repeat(auto-fill, 25rem);
   grid-auto-rows: minmax(18rem, 1fr);
-  grid-gap: 1.6rem;
+  grid-gap: 2.6rem;
 `;
