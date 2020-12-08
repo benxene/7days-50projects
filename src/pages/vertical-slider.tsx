@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import Head from 'next/head';
 import styled from 'styled-components';
 
