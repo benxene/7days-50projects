@@ -35,8 +35,6 @@ export default function VerticalSlider() {
     rightRef.current.style.transform = `translateY(${-translate * sectionRef.current.offsetHeight}px)`;
   };
 
-  //   useEffect(() => {}, [leftRef, rightRef]);
-
   return (
     <>
       <Head>
@@ -124,10 +122,10 @@ const Slide1 = styled.div`
   background-color: ${colors.rose};
 `;
 const Slide2 = styled.div`
-  background-color: ${colors.darkSlate};
+  background-color: ${colors.primary};
 `;
 const Slide3 = styled.div`
-  background-color: ${colors.primary};
+  background-color: ${colors.darkSlate};
 `;
 const Slide4 = styled.div`
   background-color: ${colors.yellow};
