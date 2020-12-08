@@ -81,6 +81,9 @@ export default function VerticalSlider() {
 const MySection = styled(Section)`
   margin: 0;
   padding: 0;
+  position: relative;
+  overflow: hidden;
+  width: 100vw;
   height: 100vh;
 `;
 
@@ -115,6 +118,7 @@ const RightSlide = styled.div`
   top: 0;
   left: 35%;
   width: 65%;
+  /* overflow-y: hidden; */
   transition: transform 0.5s ease-in-out;
 `;
 
