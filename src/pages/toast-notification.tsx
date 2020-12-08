@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import Head from 'next/head';
 import { Section } from '../components/Utilities';
 import { useEffect, useState } from 'react';
@@ -42,7 +42,7 @@ export default function ToastNotification() {
             );
           })}
         </Toasts>
-        <NotiButton onClick={() => createNotification()}>Show Notification</NotiButton>
+        <NotiButton onClick={createNotification}>Show Notification</NotiButton>
       </MySection>
     </>
   );
@@ -83,14 +83,32 @@ const Toasts = styled.div`
   bottom: 10px;
   right: 10px;
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
+  flex-direction: column-reverse;
+`;
+
+const toastAnimation = keyframes`
+  0% {
+    opacity: 0;
+  }
+
+  10%{
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+
+  100% {
+    opacity: 0;
+  }
 `;
 
 const Toast = styled.div<{ type: string }>`
   background-color: #fff;
   border-radius: 5px;
-  padding: 1rem 2rem;
+  padding: 1.5rem 2.5rem;
   margin: 0.5rem;
   color: ${props =>
     props.type === 'info'
@@ -100,4 +118,6 @@ const Toast = styled.div<{ type: string }>`
       : props.type === 'error'
       ? 'red'
       : 'royalblue'};
+
+  animation: ${toastAnimation} 3s ease-in-out;
 `;
