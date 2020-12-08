@@ -28,7 +28,9 @@ export const Section = styled.section<{ bgColor?: string; textColor?: string }>`
   color: ${props => props.textColor || 'inherit'};
 `;
 
-export const CenterContainer = styled.div<{ color?: 'primary' | 'secondary' | 'slate' }>`
+export const CenterContainer = styled.div<{
+  color?: 'primary' | 'secondary' | 'slate' | string;
+}>`
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -41,8 +43,9 @@ export const CenterContainer = styled.div<{ color?: 'primary' | 'secondary' | 's
       case 'slate':
         return 'linear-gradient(to bottom right, #292929, #111)';
       case 'secondary':
-      default:
         return 'linear-gradient(to bottom right, #ff8cba, #ffb5d3)';
+      default:
+        return props.color;
     }
   }};
 `;
@@ -102,4 +105,10 @@ export const Alert = styled.div<{ bgColor: string; color: string }>`
   transition: all 0.4s;
   visibility: hidden;
   animation: ${fadeInOut} 3s;
+`;
+
+export const ThemedCenterContainer = styled(CenterContainer)<{ dark: boolean }>`
+  background-color: ${({ dark }) => (dark ? colors.darkSlate : '#fff')};
+  color: ${({ dark }) => (dark ? colors.contrast.primary : colors.darkSlate)};
+  transition: all 0.4s;
 `;
