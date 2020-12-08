@@ -2,6 +2,8 @@ import Head from 'next/head';
 import { useState, useEffect } from 'react';
 import styled, { keyframes } from 'styled-components';
 
+import { colors } from '../constants/theme';
+
 export default function AutoTextEffect() {
   const [start, setStart] = useState<boolean>(true);
 
@@ -9,7 +11,7 @@ export default function AutoTextEffect() {
     if (start) {
       setTimeout(() => {
         setStart(false);
-      }, 3000);
+      }, 3500);
     }
   }, [start]);
 
@@ -22,16 +24,16 @@ export default function AutoTextEffect() {
         <Main>
           {start ? (
             <div>
-              <div>
+              <Count>
                 <span>3</span>
                 <span>2</span>
                 <span>1</span>
                 <span>0</span>
-              </div>
+              </Count>
               <h4>Get Ready</h4>
             </div>
           ) : (
-            <Final start={start}>
+            <Final>
               <h1>GO</h1>
               <button onClick={() => setStart(true)}>Replay</button>
             </Final>
@@ -55,7 +57,7 @@ const Section = styled.section`
 
 const Main = styled.div`
   & h1 {
-    margin: 2rem 0;
+    margin: 3rem 0;
     font-size: 3rem;
     font-weight: 500;
     color: #000;
@@ -69,35 +71,9 @@ const Main = styled.div`
   }
 `;
 
-const Final = styled.div<{ start: boolean }>`
-  animation: show 0.2s ease-out;
-  transition: ${props => (props.start ? 'scale(1)' : 'scale(0)')};
-
-  & h1 {
-    margin: 2rem 0;
-    font-size: 3rem;
-    font-weight: 500;
-    color: #000;
-  }
-`;
-
-const hide = keyframes`
-  0% {
-    transform: scale(1);
-  }
-
-  100% {
-    transform: scale(0);
-  }
-`;
-
 const show = keyframes`
   0% {
     transform: scale(0);
-  }
-
-  30% {
-    transform: scale(1.4);
   }
 
   100% {
@@ -107,32 +83,76 @@ const show = keyframes`
 
 const goIn = keyframes`
   0% {
-    transform: rotate(120deg);
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(120deg);
   }
 
   30% {
-    transform: rotate(-20deg);
+    transform: translate(-50%, -50%) rotate(-20deg);
   }
 
   60% {
-    transform: rotate(10deg);
+    transform: translate(-50%, -50%) rotate(10deg);
   }
 
   100% {
-    transform: rotate(0deg);
+    transform: translate(-50%, -50%) rotate(0deg);
   }
 `;
 
 const goOut = keyframes`
   0% {
-    transform: rotate(0deg);
+     transform: translate(-50%, -50%) rotate(0deg);
   }
 
   60% {
-    transform: rotate(20deg);
+     transform: translate(-50%, -50%) rotate(20deg);
   }
 
   100% {
-    transform: rotate(-120deg);
+     opacity: 0;
+     transform: translate(-50%, -50%) rotate(-120deg);
+  }
+`;
+
+const Count = styled.div`
+  & span {
+    font-size: 4rem;
+    color: ${colors.primary};
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    opacity: 0;
+
+    &:nth-of-type(1) {
+      animation: ${goIn} 0.5s ease-in-out, ${goOut} 0.5s ease-out 0.5s;
+      animation-fill-mode: forwards;
+    }
+
+    &:nth-of-type(2) {
+      animation: ${goIn} 0.5s ease-in-out 1s, ${goOut} 0.5s ease-out 1.5s;
+      animation-fill-mode: forwards;
+    }
+
+    &:nth-of-type(3) {
+      animation: ${goIn} 0.5s ease-in-out 2s, ${goOut} 0.5s ease-out 2.5s;
+      animation-fill-mode: forwards;
+    }
+
+    &:nth-of-type(4) {
+      animation: ${goIn} 0.5s ease-in-out 3s, ${goOut} 0.5s ease-out 3.5s;
+      animation-fill-mode: forwards;
+    }
+  }
+`;
+
+const Final = styled.div`
+  animation: ${show} 0.5s ease-in-out;
+
+  & h1 {
+    margin: 2rem 0;
+    font-size: 3rem;
+    font-weight: 500;
+    color: #000;
   }
 `;
