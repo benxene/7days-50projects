@@ -13,15 +13,25 @@ export default function MoviesApp({ movies }: { movies: Array<MovieProps> }) {
   const [movieList, setMovieList] = useState(movies);
   const inputElement = useRef<HTMLInputElement>(null);
 
+  const searchMovies = async (event: React.FormEvent) => {
+    event.preventDefault();
+    const param = inputElement.current?.value;
+    if (!param) return setMovieList(movies);
+    const reqUrl = `https://api.themoviedb.org/3/search/movie?api_key=3fd2be6f0c70a2a598f084ddfb75487c&query="${param}"`;
+
+    const response = await axios.get(reqUrl);
+    setMovieList(response.data.results);
+  };
+
   return (
     <>
       <Head>
         <title>Movies App | 7 days 50 projects</title>
       </Head>
       <Page>
-        <AppBar>
+        <AppBar onSubmit={searchMovies}>
           <input type='text' ref={inputElement} placeholder='Search' />
-          <SearchButton>
+          <SearchButton type='submit'>
             <RiSearch2Line />
           </SearchButton>
         </AppBar>
@@ -76,11 +86,12 @@ const Page = styled.div`
   min-height: 100vh;
 `;
 
-const AppBar = styled.nav`
+const AppBar = styled.form`
   width: 100%;
   height: 7rem;
   padding: 1.5rem 4rem;
   display: flex;
+  width: 100%;
   flex-direction: row-reverse;
   background-color: #131313;
   box-shadow: 0 3px 1.2rem rgba(0, 0, 0, 0.8);
