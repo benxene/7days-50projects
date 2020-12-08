@@ -3,6 +3,8 @@ export const colors = {
   secondary: '#fc5c9c',
   darkSlate: '#1a1a1a',
   lightSlate: '#ccc',
+  yellow: '#ffb866',
+  rose: '#fd3555',
   contrast: {
     primary: '#fff',
     darkSlate: '#2d6cdf'
