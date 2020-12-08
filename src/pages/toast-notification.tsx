@@ -17,7 +17,7 @@ export default function ToastNotification() {
     });
     setTimeout(() => {
       setClicks(old => {
-        old.pop();
+        old.shift();
         return [...old];
       });
     }, 3000);
