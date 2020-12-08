@@ -12,8 +12,7 @@ export default function ToastNotification() {
 
   function createNotification() {
     setClicks(old => {
-      old.push(Math.floor(Math.random() * messages.length));
-      return [...old];
+      return [...old, Math.floor(Math.random() * messages.length)];
     });
     setTimeout(() => {
       setClicks(old => {
@@ -23,9 +22,7 @@ export default function ToastNotification() {
     }, 3000);
   }
 
-  useEffect(() => {
-    console.log(clicks);
-  }, [createNotification]);
+  useEffect(() => {}, [createNotification, clicks]);
 
   return (
     <>
