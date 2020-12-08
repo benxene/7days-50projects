@@ -5,6 +5,7 @@ import { BiMessageRounded } from 'react-icons/bi';
 import GoogleFonts from 'next-google-fonts';
 
 import { BsArrowCounterclockwise, BsHeartFill, BsEnvelope } from 'react-icons/bs';
+import Head from 'next/head';
 
 // colors
 const lightGrey = '#acabab';
@@ -13,6 +14,9 @@ const skyBlue = '#00a2ff';
 export default function Card() {
   return (
     <>
+      <Head>
+        <title>Notes app | 7 days 50 projects</title>
+      </Head>
       <GoogleFonts href='https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800&display=swap' />
       <Main>
         <Frame>
