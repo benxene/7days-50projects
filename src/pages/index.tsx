@@ -1,3 +1,4 @@
+import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 import styled from 'styled-components';
 import fs from 'fs';
@@ -6,12 +7,8 @@ import Nav from '../components/NavigationBar';
 import { Container, Heading, Section } from '../components/Utilities';
 import Project from '../components/Project';
 import { colors } from '../constants/theme';
-import { GetServerSideProps } from 'next';
-import { useEffect } from 'react';
 
-export default function Home({ apps }: any) {
-  useEffect(() => console.log(apps), []);
-
+export default function Home({ apps }: IProps) {
   return (
     <>
       <Head>
@@ -45,15 +42,19 @@ export default function Home({ apps }: any) {
   );
 }
 
+interface IProps {
+  apps: Array<{ name: string; file: string }>;
+}
+
 export const getServerSideProps: GetServerSideProps = async _ => {
   let files = fs.readdirSync('./src/pages');
-  files = files.map((file, _) => {
+  files = files.map(file => {
     return file.replace('.tsx', '');
   });
 
   files.splice(files.indexOf('_app'), 1);
 
-  const apps = files.map((file, _) => {
+  const apps = files.map(file => {
     let name = file.replace(/-/g, ' ');
     if (name === 'index') name = 'Sticky nav';
     name = name.charAt(0).toUpperCase() + name.substr(1);
