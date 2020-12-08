@@ -22,16 +22,17 @@ export default function MovieCard(props: IMovie) {
   );
 }
 
-interface IMovie {
+export interface IMovie {
   title: string;
   rating: number;
   description: string;
   poster: string;
+  id: string;
 }
 
 const Card = styled.div`
   height: 48rem;
-  width: 30rem;
+  width: 28rem;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 85% 15%;
@@ -65,7 +66,10 @@ const Caption = styled.figcaption<{ rating: number }>`
   align-items: center;
 
   & > h3 {
+    font-weight: 500;
+    font-size: 1.7rem;
     flex: 1;
+    margin-right: 0.5rem;
   }
 
   & > p {
@@ -77,7 +81,8 @@ const Caption = styled.figcaption<{ rating: number }>`
     text-align: center;
     border-radius: 50%;
     background-color: rgba(0, 0, 0, 0.6);
-    color: ${({ rating }) => (Number(rating) > 8 ? 'green' : Number(rating) > 6 ? 'yellow' : 'red')};
+    color: ${({ rating }) =>
+      Number(rating) >= 8 ? 'green' : Number(rating) >= 7 ? 'orange' : Number(rating) >= 5.5 ? 'yellow' : 'red'};
   }
 `;
 
@@ -94,6 +99,7 @@ const Overview = styled.div`
   transition: all 0.3s;
 
   & > h3 {
+    color: ${colors.primary};
     margin-bottom: 1rem;
   }
 `;
