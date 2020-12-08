@@ -28,7 +28,7 @@ export default function Home({ apps }: any) {
           <ProjectsGrid>
             {apps.map((app: { file: string; name: string }, num: number) => {
               return (
-                <Project day={num} key={app.file} image={`screenshots/${app.file}.png`} link={app.file}>
+                <Project day={num + 1} key={app.file} image={`screenshots/${app.file}.png`} link={app.file}>
                   {app.name}
                 </Project>
               );
