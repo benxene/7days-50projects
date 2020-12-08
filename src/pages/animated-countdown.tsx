@@ -23,15 +23,15 @@ export default function AutoTextEffect() {
       <Section>
         <Main>
           {start ? (
-            <div>
+            <>
               <Count>
                 <span>3</span>
                 <span>2</span>
                 <span>1</span>
                 <span>0</span>
               </Count>
-              <h4>Get Ready</h4>
-            </div>
+              <h4 style={{ margin: '0' }}>Get Ready</h4>
+            </>
           ) : (
             <Final>
               <h1>GO</h1>
@@ -83,7 +83,6 @@ const show = keyframes`
 
 const goIn = keyframes`
   0% {
-    opacity: 1;
     transform: translate(-50%, -50%) rotate(120deg);
   }
 
@@ -102,27 +101,32 @@ const goIn = keyframes`
 
 const goOut = keyframes`
   0% {
-     transform: translate(-50%, -50%) rotate(0deg);
+    transform: translate(-50%, -50%) rotate(0deg);
   }
 
   60% {
-     transform: translate(-50%, -50%) rotate(20deg);
+    transform: translate(-50%, -50%) rotate(20deg);
   }
 
   100% {
-     opacity: 0;
-     transform: translate(-50%, -50%) rotate(-120deg);
-  }
+    transform: translate(-50%, -50%) rotate(-120deg);
 `;
 
 const Count = styled.div`
+  position: relative;
+  width: 10rem;
+  height: 4rem;
+  overflow: hidden;
+
   & span {
     font-size: 4rem;
     color: ${colors.primary};
     position: absolute;
     top: 40%;
     left: 50%;
-    opacity: 0;
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(120deg);
+    transform-origin: bottom center;
 
     &:nth-of-type(1) {
       animation: ${goIn} 0.5s ease-in-out, ${goOut} 0.5s ease-out 0.5s;
