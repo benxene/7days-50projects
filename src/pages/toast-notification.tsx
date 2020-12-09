@@ -33,7 +33,7 @@ export default function ToastNotification() {
         <Toasts>
           {clicks.map((click, index) => {
             return (
-              <Toast key={index} type={types[index]}>
+              <Toast key={index} type={types[click]}>
                 {messages[click]}
               </Toast>
             );
@@ -80,7 +80,7 @@ const Toasts = styled.div`
   bottom: 10px;
   right: 10px;
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
 `;
 
 const toastAnimation = keyframes`
@@ -116,5 +116,5 @@ const Toast = styled.div<{ type: string }>`
       ? 'red'
       : 'royalblue'};
 
-  animation: ${toastAnimation} 3s ease-in-out;
+  /* animation: ${toastAnimation} 3s ease-in-out; */
 `;
