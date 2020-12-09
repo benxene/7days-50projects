@@ -1,12 +1,12 @@
-import Head from 'next/head';
 import { useEffect, useState } from 'react';
+import Head from 'next/head';
 import styled from 'styled-components';
 import { colors } from '../constants/theme';
 
 export default function BlurryLoading() {
   let [load, setLoad] = useState<number>(0);
 
-  useEffect(() => {
+  const incrementLoadCount = () => {
     setLoad(oldValue => {
       if (load > 99) {
         return oldValue;
@@ -14,6 +14,10 @@ export default function BlurryLoading() {
         return oldValue + 1;
       }
     });
+  };
+
+  useEffect(() => {
+    setTimeout(incrementLoadCount, 30);
   }, [load]);
 
   return (
