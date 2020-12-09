@@ -21,31 +21,27 @@ const contents = [
 const BoxComponent = () => {
   const [scroll, setScroll] = useState<boolean[]>([]);
   const [boxes, setBoxes] = useState<NodeListOf<HTMLDivElement>>();
-  const handleScroll = () => {
-    const triggerBottom = (window.innerHeight / 5) * 4;
-    const scrollValue = [...boxes].map((box, index) => {
-      const boxHeight = box.getBoundingClientRect().top;
-      return boxHeight < triggerBottom;
-    });
-    setScroll([...scrollValue]);
-  };
 
   useEffect(() => {
     if (boxes === undefined) {
       return;
     } else {
-      window.addEventListener('scroll', handleScroll);
-      window.scrollTo(0, 10);
+      window.addEventListener('scroll', () => {
+        const triggerBottom = (window.innerHeight / 5) * 4;
+        const scrollValue = [...boxes].map(box => {
+          const boxHeight = box.getBoundingClientRect().top;
+          return boxHeight < triggerBottom;
+        });
+        setScroll([...scrollValue]);
+      });
+      window.scrollTo(0, 12);
     }
   }, [boxes]);
 
   useEffect(() => {
-    console.log(scroll);
-  }, [scroll]);
-
-  useEffect(() => {
     setBoxes(document.querySelectorAll('.box'));
   }, []);
+
   return (
     <>
       {contents.map((content, index) => {
