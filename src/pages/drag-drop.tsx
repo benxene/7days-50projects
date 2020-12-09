@@ -26,7 +26,8 @@ export default function DragDrop() {
   useEffect(() => {
     if (
       states.indexOf('filled') === -1 ||
-      states.indexOf('filled') !== states.lastIndexOf('filled')
+      states.indexOf('filled') !== states.lastIndexOf('filled') ||
+      states.indexOf('hovered') !== states.lastIndexOf('hovered')
     ) {
       setStates(historyState);
     }
