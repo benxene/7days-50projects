@@ -1,57 +1,39 @@
 import Head from 'next/head';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import styled from 'styled-components';
 import { colors } from '../constants/theme';
 
-const contents = [
-  'Content1',
-  'Content2',
-  'Content3',
-  'Content4',
-  'Content5',
-  'Content6',
-  'Content7',
-  'Content8',
-  'Content9',
-  'Content10',
-  'Content11',
-  'Content12'
-];
-
 const BoxComponent = () => {
   const [scroll, setScroll] = useState<boolean[]>([]);
-  const [boxes, setBoxes] = useState<NodeListOf<HTMLDivElement>>();
-  const handleScroll = () => {
-    const triggerBottom = (window.innerHeight / 5) * 4;
-    const scrollValue = [...boxes].map((box, index) => {
-      const boxHeight = box.getBoundingClientRect().top;
-      return boxHeight < triggerBottom;
-    });
-    setScroll([...scrollValue]);
-  };
+  const boxes = useRef<any>([]);
 
   useEffect(() => {
     if (boxes === undefined) {
       return;
     } else {
-      window.addEventListener('scroll', handleScroll);
-      window.scrollTo(0, 10);
+      window.addEventListener('scroll', () => {
+        const triggerBottom = (window.innerHeight / 5) * 4;
+        const scrollValue = boxes.current.map((box: any) => {
+          const boxHeight = box.getBoundingClientRect().top;
+          return boxHeight < triggerBottom;
+        });
+        setScroll([...scrollValue]);
+      });
+      window.scrollTo(0, 12);
     }
-  }, [boxes]);
-
-  useEffect(() => {
-    console.log(scroll);
-  }, [scroll]);
-
-  useEffect(() => {
-    setBoxes(document.querySelectorAll('.box'));
   }, []);
+
   return (
     <>
-      {contents.map((content, index) => {
+      {[...new Array(12)].map((_, index) => {
         return (
-          <Box className='box' key={index} style={scroll[index] ? { transform: 'translateX(0)' } : {}}>
-            <h1>{content}</h1>
+          <Box
+            className='box'
+            ref={el => (boxes.current[index] = el)}
+            key={index}
+            style={scroll[index] ? { transform: 'translateX(0)' } : {}}
+          >
+            <h1>{`Content ${index + 1}`}</h1>
           </Box>
         );
       })}
