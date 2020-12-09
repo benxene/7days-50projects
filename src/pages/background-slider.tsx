@@ -1,47 +1,70 @@
+import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import Head from 'next/head';
 import { Section } from '../components/Utilities';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
+const images: string[] = [
+  'https://images.unsplash.com/photo-1549880338-65ddcdfd017b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80',
+  'https://images.unsplash.com/photo-1511593358241-7eea1f3c84e5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1934&q=80',
+  'https://images.unsplash.com/photo-1495467033336-2effd8753d51?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80',
+  'https://images.unsplash.com/photo-1522735338363-cc7313be0ae0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2689&q=80',
+  'https://images.unsplash.com/photo-1559087867-ce4c91325525?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80'
+];
+
+let count = 0;
+
 export default function BackgroundSlider() {
+  const [ind, setInd] = useState<number[]>(new Array(5).fill(0));
+  ind[0] = 1;
+  const imgRef = useRef<any>();
+  const slideRef = useRef<any>();
+
+  const handleClick = () => {
+    count++;
+    if (count > 4) {
+      setInd(old => {
+        old[old.length - 1] = 0;
+        return [...old];
+      });
+      count = 0;
+    }
+    setInd(old => {
+      old[count] = 1;
+      old[count - 1] = 0;
+      return [...old];
+    });
+  };
+
+  useEffect(() => {
+    // imgRef.current.style.backgroundImage = slideRef.current.style.backgroundImage;
+  }, [ind]);
+
   return (
     <>
       <Head>
         <title>Background Slider | 7 days 50 projects</title>
       </Head>
-      <MySection>
+      <MySection
+        ref={imgRef}
+        // style={{
+        //   backgroundImage: `url('https://images.unsplash.com/photo-1559087867-ce4c91325525?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80')`
+        // }}
+      >
         <Background>
-          <Slide
-            style={{
-              backgroundImage: `url(
-                'https://images.unsplash.com/photo-1549880338-65ddcdfd017b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80'
-              )`
-            }}
-          />
-          <Slide
-            style={{
-              backgroundImage: `url('https://images.unsplash.com/photo-1511593358241-7eea1f3c84e5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1934&q=80')`
-            }}
-          />
-          <Slide
-            style={{
-              backgroundImage: `url('https://images.unsplash.com/photo-1495467033336-2effd8753d51?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80')`
-            }}
-          />
-          <Slide
-            style={{
-              backgroundImage: `url('https://images.unsplash.com/photo-1522735338363-cc7313be0ae0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2689&q=80')`
-            }}
-          />
-          <Slide
-            style={{
-              backgroundImage: `url('https://images.unsplash.com/photo-1559087867-ce4c91325525?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80')`
-            }}
-          />
+          {images.map((image, index) => {
+            return (
+              <Slide
+                ref={slideRef}
+                key={'slide' + index}
+                style={{ backgroundImage: `url(${image})`, opacity: `${ind[index]}` }}
+              />
+            );
+          })}
           <LeftButton>
             <FaArrowLeft />
           </LeftButton>
-          <RightButton>
+          <RightButton onClick={handleClick}>
             <FaArrowRight />
           </RightButton>
         </Background>
@@ -58,9 +81,11 @@ const MySection = styled(Section)`
   height: 100vh;
   overflow: hidden;
   margin: 0;
+  padding: 0;
   background-position: center center;
   background-size: cover;
   transition: 0.4s;
+
   :before {
     content: '';
     position: absolute;
@@ -69,7 +94,6 @@ const MySection = styled(Section)`
     width: 100%;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.7);
-    z-index: -1;
   }
 `;
 
@@ -82,7 +106,7 @@ const Background = styled.div`
 `;
 
 const Slide = styled.div`
-  opacity: 1;
+  /* opacity: 1; */
   height: 100vh;
   width: 100vw;
   background-position: center center;
