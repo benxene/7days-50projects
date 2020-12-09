@@ -25,7 +25,7 @@ export default function Home({ apps }: IProps) {
           <ProjectsGrid>
             {apps.map((app: { file: string; name: string }, num: number) => {
               return (
-                <Project day={num + 1} key={app.file} image={`screenshots/${app.file}.png`} link={app.file}>
+                <Project day={num + 1} key={app.file} image={`screenshots/${app.file}.jpg`} link={app.file}>
                   {app.name}
                 </Project>
               );
