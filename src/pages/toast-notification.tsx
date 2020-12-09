@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import Head from 'next/head';
 import { Section } from '../components/Utilities';
 import { useEffect, useState } from 'react';
@@ -83,25 +83,6 @@ const Toasts = styled.div`
   flex-direction: column;
 `;
 
-const toastAnimation = keyframes`
-  0% {
-    opacity: 0;
-  }
-
-  10%{
-    opacity: 1;
-  }
-
-  90% {
-    opacity: 1;
-  }
-
-
-  100% {
-    opacity: 0;
-  }
-`;
-
 const Toast = styled.div<{ type: string }>`
   background-color: #fff;
   border-radius: 5px;
@@ -115,6 +96,4 @@ const Toast = styled.div<{ type: string }>`
       : props.type === 'error'
       ? 'red'
       : 'royalblue'};
-
-  /* animation: ${toastAnimation} 3s ease-in-out; */
 `;
