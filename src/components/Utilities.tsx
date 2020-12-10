@@ -22,8 +22,7 @@ export const Heading = styled.h1<{ center?: boolean; small?: boolean }>`
 `;
 
 export const Section = styled.section<{ bgColor?: string; textColor?: string }>`
-  padding: 5rem 0;
-  margin: 5rem 0;
+  padding: 10rem 0;
   background-color: ${props => props.bgColor || 'inherit'};
   color: ${props => props.textColor || 'inherit'};
 `;

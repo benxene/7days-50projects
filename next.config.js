@@ -6,7 +6,9 @@ module.exports = {
       'avatars0.githubusercontent.com',
       'avatars1.githubusercontent.com',
       'avatars3.githubusercontent.com',
-      'avatars2.githubusercontent.com'
+      'avatars2.githubusercontent.com',
+      'raw.githubusercontent.com', 
+      'image.tmdb.org'
     ],
     dangerouslyAllowAllDomains: true,
     fallback: true
