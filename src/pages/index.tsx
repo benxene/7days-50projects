@@ -28,7 +28,12 @@ export default function Home({ apps, team }: IProps) {
           <ProjectsGrid>
             {apps.map((app: { file: string; name: string }, num: number) => {
               return (
-                <Project day={num + 1} key={app.file} image={`screenshots/${app.file}.jpg`} link={app.file}>
+                <Project
+                  day={num + 1}
+                  key={app.file}
+                  image={`screenshots/${app.file}.jpg`}
+                  link={`/${app.file}`}
+                >
                   {app.name}
                 </Project>
               );
@@ -85,7 +90,9 @@ export const getServerSideProps: GetServerSideProps = async _ => {
     return { name, file };
   });
 
-  const team = (await axios.get('https://api.github.com/repos/benxene/7days-50projects/contributors')).data;
+  const team = (
+    await axios.get('https://api.github.com/repos/benxene/7days-50projects/contributors')
+  ).data;
 
   return {
     props: {
