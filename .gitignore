@@ -1,3 +1,6 @@
 node_modules
 build
 .next
+
+# Local Netlify folder
+.netlify
