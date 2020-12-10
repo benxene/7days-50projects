@@ -9,6 +9,7 @@ import { Container, Heading, Section } from '../components/Utilities';
 import Nav from '../components/NavigationBar';
 import DevCard from '../components/DevCard';
 import Project from '../components/Project';
+import Footer from '../components/Footer';
 
 export default function Home({ apps, team }: IProps) {
   return (
@@ -55,6 +56,7 @@ export default function Home({ apps, team }: IProps) {
           })}
         </TeamGrid>
       </Section>
+      <Footer />
     </>
   );
 }
