@@ -1,5 +1,5 @@
-import Head from 'next/head';
 import { useEffect, useState } from 'react';
+import Head from 'next/head';
 import axios from 'axios';
 import styled from 'styled-components';
 
@@ -23,49 +23,20 @@ const colors = {
 const main_types = Object.keys(colors);
 const main_values = Object.values(colors);
 
-function Pokimon({
-  id,
-  name,
-  type,
-  image,
-  bgColor
-}: {
-  id: number;
-  type: string;
-  name: string;
-  image: string;
-  bgColor: string;
-}) {
-  const Dex = styled.div`
-    width: 160px;
-    height: 260px;
-    border-radius: 25px;
-    margin: 10px;
-    padding: 20px;
-    text-align: center;
-    background-color: ${bgColor};
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.4);
-  `;
-
+function Pokemon({ id, name, type, image, bgColor }: IPokeCard) {
   return (
-    <>
-      <Dex>
-        <ImageBox>
-          <Image src={`https://pokeres.bastionbot.org/images/pokemon/${image}.png`} alt='logo' />
-        </ImageBox>
-        <DexCount>#{id}</DexCount>
-        <Name>{name}</Name>
-        <Type>Type: {type}</Type>
-      </Dex>
-    </>
+    <Dex bgColor={bgColor}>
+      <ImageBox>
+        <Image src={`https://pokeres.bastionbot.org/images/pokemon/${image}.png`} alt={name} />
+      </ImageBox>
+      <DexCount>#{id}</DexCount>
+      <Name>{name}</Name>
+      <Type>Type: {type}</Type>
+    </Dex>
   );
 }
 
-function Pokedex() {
+function PokeDex() {
   const [poki, setPoki] = useState<Array<any>>([]);
   const pokemon_count = 150;
 
@@ -112,7 +83,7 @@ function Pokedex() {
       <DexContainer>
         {poki.map(p => {
           return (
-            <Pokimon
+            <Pokemon
               key={p.id}
               name={p.name}
               id={p.id}
@@ -125,6 +96,14 @@ function Pokedex() {
       </DexContainer>
     </>
   );
+}
+
+interface IPokeCard {
+  id: number;
+  type: string;
+  name: string;
+  image: string;
+  bgColor: string;
 }
 
 // Styled component CSS
@@ -143,6 +122,21 @@ const DexContainer = styled.div`
   @media (max-width: 60rem) {
     max-width: 90%;
   }
+`;
+
+const Dex = styled.div<{ bgColor: string }>`
+  width: 160px;
+  height: 260px;
+  border-radius: 25px;
+  margin: 10px;
+  padding: 20px;
+  text-align: center;
+  background-color: ${props => props.bgColor};
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.4);
 `;
 
 const Heading = styled.h1`
@@ -183,4 +177,4 @@ const Type = styled.p`
   font-size: 14px;
 `;
 
-export default Pokedex;
+export default PokeDex;
