@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
+import axios from 'axios';
 import styled from 'styled-components';
 
 const colors = {
@@ -66,25 +67,12 @@ function Pokimon({
 
 function pokedex() {
   const [poki, setPoki] = useState<Array<any>>([]);
-  const [count, setCount] = useState<{ prev: number; next: number }>({
-    prev: 1,
-    next: 20
-  });
-
-  const trackScrolling = () => {
-    const wrappedElement = document.getElementById('dex-container');
-    setCount((old: any) => ({
-      prev: old.next,
-      next: old.next + 20
-    }));
-  };
+  const pokemon_count = 150;
 
   async function getPokemon() {
-    document.addEventListener('scroll', trackScrolling);
-
-    for (let i = count.prev; i <= count.next; i++) {
-      const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}`);
-      const pokemon = await res.json();
+    for (let i = 1; i <= pokemon_count; i++) {
+      const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${i}`);
+      const pokemon = res.data;
 
       const name = pokemon.name[0].toUpperCase() + pokemon.name.slice(1);
       const id = pokemon.id.toString().padStart(3, '0');
@@ -111,7 +99,7 @@ function pokedex() {
 
   useEffect(() => {
     getPokemon();
-  }, [count]);
+  }, []);
 
   return (
     <>
@@ -119,7 +107,9 @@ function pokedex() {
         <title>Poke Dex | 7 days 50 projects</title>
       </Head>
 
-      <DexContainer id='dex-container'>
+      <Heading>Pokedex</Heading>
+
+      <DexContainer>
         {poki.map(p => {
           return (
             <Pokimon
@@ -142,8 +132,22 @@ const DexContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 2rem;
+  width: 80%;
+  margin: 2rem auto;
   flex-wrap: wrap;
+
+  @media (max-width: 80rem) {
+    max-width: 85%;
+  }
+
+  @media (max-width: 60rem) {
+    max-width: 90%;
+  }
+`;
+
+const Heading = styled.h1`
+  text-align: center;
+  margin: 2rem 0;
 `;
 
 const ImageBox = styled.div`
