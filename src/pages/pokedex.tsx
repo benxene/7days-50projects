@@ -65,7 +65,7 @@ function Pokimon({
   );
 }
 
-function pokedex() {
+function Pokedex() {
   const [poki, setPoki] = useState<Array<any>>([]);
   const pokemon_count = 150;
 
@@ -183,4 +183,4 @@ const Type = styled.p`
   font-size: 14px;
 `;
 
-export default pokedex;
+export default Pokedex;
