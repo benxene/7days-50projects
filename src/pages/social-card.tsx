@@ -2,7 +2,6 @@
 import styled from 'styled-components';
 import { MdExpandMore } from 'react-icons/md';
 import { BiMessageRounded } from 'react-icons/bi';
-import GoogleFonts from 'next-google-fonts';
 
 import { BsArrowCounterclockwise, BsHeartFill, BsEnvelope } from 'react-icons/bs';
 import Head from 'next/head';
@@ -17,10 +16,9 @@ export default function Card() {
       <Head>
         <title>Notes app | 7 days 50 projects</title>
       </Head>
-      <GoogleFonts href='https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800&display=swap' />
       <Main>
         <Frame>
-          <CardImageIcon src='/dev.png' alt='community logo' />
+          <CardImageIcon src='/batman.jpg' alt='community logo' />
           <CardContainer>
             <CardHeader>
               <HeaderInfo>
@@ -61,16 +59,25 @@ export default function Card() {
             </CardHeader>
             <CardBody>
               <CardImage>
-                <CardInnerImage src='/learn.jpg' alt='card main image' />
-                <CardInnerImageIcon src='/dev.png' alt='community logo' />
+                <CardInnerImage
+                  src='https://github.com/PranavGPR/PranavGPR/blob/master/code.gif?raw=true'
+                  alt='card main image'
+                />
+                <CardInnerImageIcon
+                  src='https://cdn4.iconfinder.com/data/icons/logos-3/600/React.js_logo-512.png'
+                  alt='community logo'
+                />
                 <AuthorInfo>
-                  <AuthorImage src='/profile.jpg' alt='profile image' />
+                  <AuthorImage src='/batman.jpg' alt='profile image' />
                   <AuthorName>Md Jack</AuthorName>
                 </AuthorInfo>
               </CardImage>
               <CardDescription>
                 <p>Learning React? Start Small.</p>
-                <p>Can't pry yourself away from the tutorials? The cure is to make tiny little experment apps.</p>
+                <p>
+                  Can't pry yourself away from the tutorials? The cure is to make tiny little
+                  experment apps.
+                </p>
                 <p
                   style={{
                     color: lightGrey
@@ -117,11 +124,10 @@ const iconSize = styled.img`
   height: 50px;
 `;
 
-const Main = styled.body`
+const Main = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'Nunito', sans-serif;
 
   img {
     max-width: 100%;
