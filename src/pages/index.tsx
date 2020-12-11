@@ -2,7 +2,6 @@ import Head from 'next/head';
 import { GetServerSideProps } from 'next';
 import styled from 'styled-components';
 import axios from 'axios';
-import fs from 'fs';
 
 import { colors } from '../constants/theme';
 import { Container, Heading, Section } from '../components/Utilities';
@@ -76,19 +75,14 @@ interface IProps {
 }
 
 export const getServerSideProps: GetServerSideProps = async _ => {
-  let files = fs.readdirSync('./src/pages');
-  files = files.map(file => {
-    return file.replace('.tsx', '');
-  });
-
-  files.splice(files.indexOf('_app'), 1);
-
-  const apps = files.map(file => {
-    let name = file.replace(/-/g, ' ');
-    if (name === 'index') name = 'Sticky nav';
-    name = name.charAt(0).toUpperCase() + name.substr(1);
-    return { name, file };
-  });
+  const apps = (
+    await axios.get('/api/get-projects', {
+      proxy: {
+        host: '127.0.0.1',
+        port: 3000
+      }
+    })
+  ).data.apps;
 
   const team = (
     await axios.get('https://api.github.com/repos/benxene/7days-50projects/contributors')
