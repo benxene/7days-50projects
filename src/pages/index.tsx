@@ -20,6 +20,11 @@ export default function Home({ apps, team }: IProps) {
       <Hero>
         <Heading center>7 Days 50 Projects</Heading>
         <p>using Next JS and styled-components</p>
+        <LogoContainer>
+          <img src='/styledcomponent.png'></img>
+          <img src='/next-js.svg'></img>
+          <img src='/typescript.png'></img>
+        </LogoContainer>
       </Hero>
       <Section>
         <Container>
@@ -98,6 +103,7 @@ export const getServerSideProps: GetServerSideProps = async _ => {
 };
 
 const Hero = styled.div`
+  min-height: 60rem;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -105,6 +111,27 @@ const Hero = styled.div`
   align-items: center;
   background-color: ${colors.primary};
   color: ${colors.contrast.primary};
+  position: relative;
+`;
+
+const LogoContainer = styled.div`
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 0;
+
+  img {
+    display: inline-block;
+    height: 10rem;
+    width: 10rem;
+
+    @media (max-width: 600px) {
+      height: 7rem;
+      width: 7rem;
+    }
+  }
 `;
 
 const ProjectsGrid = styled.div`
