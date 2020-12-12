@@ -22,8 +22,8 @@ export default function Home({ apps, team }: IProps) {
         <Heading center>50 Projects in 7 Days </Heading>
         <p>Using</p>
         <LogoContainer>
-          <img src='/typescript.png' />
-          <SiNextDotJs />
+          <img src='/typescript.png' style={{ marginRight: '2rem' }} />
+          <SiNextDotJs style={{ marginRight: '2rem' }} />
           <img src='/styledcomponent.png' />
         </LogoContainer>
         <BgImage src='https://raw.githubusercontent.com/benxene/blobs/main/benxene-wo-name.png' />
@@ -148,13 +148,12 @@ const LogoContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 2rem;
+  margin-top: 3rem;
 
   img,
   svg {
     height: 5rem;
     width: 5rem;
-    margin-right: 1rem;
 
     @media (max-width: 600px) {
       height: 3rem;
