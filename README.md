@@ -1,8 +1,8 @@
-# 7 Days - 50 Projects
+<h1 align='center'>7 Days - 50 Projects</h1>
 
-This is a derivative of the 50 Days 50 Projects challenge.
+This is a derivative of the [50 Projects 50 Days](https://50projects50days.com) challenge.
 
-[**Project Info Website**](https://7days50projects.vercel.app)
+[**Landing page 🔗**](https://7days50projects.vercel.app)
 
 | S.No |         Project Name          |                                   Demo                                   |
 | :--: | :---------------------------: | :----------------------------------------------------------------------: |
@@ -57,9 +57,9 @@ This is a derivative of the 50 Days 50 Projects challenge.
 |  49  |        Vertical Slider        |        [Demo](https://7days50projects.vercel.app/vertical-slider)        |
 |  50  |           Wave Form           |           [Demo](https://7days50projects.vercel.app/wave-form)           |
 
-**License**
+## License
 
-The MIT License
+**The MIT License**
 
 Copyright (c) 2020 - 2021 Benxene
 
