@@ -113,7 +113,6 @@ const Hero = styled.div`
   align-items: center;
   background-image: linear-gradient(to right bottom, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.6)),
     url('https://images.unsplash.com/photo-1581893106728-1e2197903b0a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80');
-
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -122,7 +121,7 @@ const Hero = styled.div`
   overflow: hidden;
 
   h1 {
-    @media (max-width: 600px) {
+    @media (max-width: 700px) {
       font-size: 3rem;
     }
   }
@@ -134,10 +133,11 @@ const BgImage = styled.img`
   height: 60rem;
   opacity: 0.2;
 
-  @media (max-width: 600px) {
+  @media (max-width: 700px) {
     width: 40rem;
     height: 40rem;
   }
+
   @media (max-width: 400px) {
     width: 30rem;
     height: 30rem;
