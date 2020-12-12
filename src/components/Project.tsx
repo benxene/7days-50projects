@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import styled from 'styled-components';
 import { RiExternalLinkLine as LinkIcon } from 'react-icons/ri';
 import { colors, sizes } from '../constants/theme';
@@ -11,7 +10,9 @@ export default function Project({ image, day, children: title, link }: IProps) {
         <p className='day'>{`# ${day}`}</p>
         <LinkGroup>
           <LinkIcon />
-          <Link href={link}>Link</Link>
+          <a href={link} target='_blank' rel='noopener noreferrer'>
+            Link
+          </a>
         </LinkGroup>
       </InfoPanel>
     </Card>
@@ -21,7 +22,8 @@ export default function Project({ image, day, children: title, link }: IProps) {
 const Card = styled.div<{ image: string }>`
   width: 25rem;
   min-height: 16rem;
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${props => props.image});
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url(${props => props.image});
   background-size: cover;
   background-position: center center;
   border-radius: ${sizes.radius.small};
@@ -78,6 +80,7 @@ const LinkGroup = styled.div`
 
   & > a {
     display: inline-block;
+    text-decoration: none;
   }
 `;
 
