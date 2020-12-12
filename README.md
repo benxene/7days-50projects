@@ -1,6 +1,6 @@
-# 7 Days - 50 Projects
+<h1 align='center'>7 Days - 50 Projects</h1>
 
-This is a derivative of the 50 Days 50 Projects challenge.
+This is a derivative of the [50 Days 50 Projects ](https://50projects50days.com)challenge.
 
 [**Project Info Website**](https://7days50projects.vercel.app)
 
