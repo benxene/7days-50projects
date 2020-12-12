@@ -54,7 +54,7 @@ export default function Home({ apps, team }: IProps) {
         <TeamGrid>
           {team.map(contributor => {
             return (
-              !(contributor.login === 'imgbot[bot]') && (
+              !contributor.login.includes('[bot]') && (
                 <DevCard
                   key={contributor.login}
                   avatar={contributor.avatar_url}
