@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { GetServerSideProps } from 'next';
-import Image from 'next/image';
+import { SiNextDotJs } from 'react-icons/si';
 import styled from 'styled-components';
 import axios from 'axios';
 
@@ -23,7 +23,7 @@ export default function Home({ apps, team }: IProps) {
         <p>Using</p>
         <LogoContainer>
           <img src='/typescript.png' />
-          <img src='/next-js.svg' />
+          <SiNextDotJs />
           <img src='/styledcomponent.png' />
         </LogoContainer>
         <BgImage src='https://raw.githubusercontent.com/benxene/blobs/main/benxene-wo-name.png' />
@@ -119,15 +119,29 @@ const Hero = styled.div`
   background-size: cover;
   color: ${colors.contrast.primary};
   position: relative;
-`;
+  overflow: hidden;
 
-// linear-gradient(to bottom, ${colors.primary}, ${colors.secondary})
+  h1 {
+    @media (max-width: 600px) {
+      font-size: 3rem;
+    }
+  }
+`;
 
 const BgImage = styled.img`
   position: absolute;
   width: 60rem;
   height: 60rem;
   opacity: 0.2;
+
+  @media (max-width: 600px) {
+    width: 40rem;
+    height: 40rem;
+  }
+  @media (max-width: 400px) {
+    width: 30rem;
+    height: 30rem;
+  }
 `;
 
 const LogoContainer = styled.div`
@@ -136,14 +150,15 @@ const LogoContainer = styled.div`
   align-items: center;
   margin: 2rem;
 
-  img {
+  img,
+  svg {
     height: 5rem;
     width: 5rem;
     margin-right: 1rem;
 
     @media (max-width: 600px) {
-      height: 7rem;
-      width: 7rem;
+      height: 3rem;
+      width: 3rem;
     }
   }
 `;
