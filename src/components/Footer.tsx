@@ -22,7 +22,7 @@ export default function Footer() {
         </Link>
       </Foot>
       <Derivative>
-        A derivative of <Link href='50projects50days.com'>#50Projects50Days</Link>
+        A derivative of <Link href='https://50projects50days.com'>#50Projects50Days</Link>
       </Derivative>
     </>
   );

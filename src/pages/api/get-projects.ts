@@ -1,9 +1,11 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import fs from 'fs';
+import path from 'path';
 
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
+export default function handler(_: NextApiRequest, res: NextApiResponse) {
   res.setHeader('Content-Type', 'application/json');
-  let files = fs.readdirSync('./src/pages');
+  let files = fs.readdirSync(path.resolve('./src/pages'));
+
   files = files.map(file => {
     return file.replace('.tsx', '');
   });
