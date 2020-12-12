@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import { GetServerSideProps } from 'next';
+import Image from 'next/image';
 import styled from 'styled-components';
 import axios from 'axios';
 
@@ -18,13 +19,14 @@ export default function Home({ apps, team }: IProps) {
       </Head>
       <Nav />
       <Hero>
-        <Heading center>7 Days 50 Projects</Heading>
-        <p>using Next JS and styled-components</p>
+        <Heading center>50 Projects in 7 Days </Heading>
+        <p>Using</p>
         <LogoContainer>
-          <img src='/styledcomponent.png'></img>
-          <img src='/next-js.svg'></img>
-          <img src='/typescript.png'></img>
+          <img src='/typescript.png' />
+          <img src='/next-js.svg' />
+          <img src='/styledcomponent.png' />
         </LogoContainer>
+        <BgImage src='https://raw.githubusercontent.com/benxene/blobs/main/benxene-wo-name.png' />
       </Hero>
       <Section>
         <Container>
@@ -109,23 +111,35 @@ const Hero = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: ${colors.primary};
+  background-image: linear-gradient(to right bottom, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.6)),
+    url('https://images.unsplash.com/photo-1581893106728-1e2197903b0a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80');
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   color: ${colors.contrast.primary};
   position: relative;
 `;
 
-const LogoContainer = styled.div`
-  width: 100%;
-  overflow: hidden;
-  display: flex;
-  justify-content: space-between;
+// linear-gradient(to bottom, ${colors.primary}, ${colors.secondary})
+
+const BgImage = styled.img`
   position: absolute;
-  bottom: 0;
+  width: 60rem;
+  height: 60rem;
+  opacity: 0.2;
+`;
+
+const LogoContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem;
 
   img {
-    display: inline-block;
-    height: 10rem;
-    width: 10rem;
+    height: 5rem;
+    width: 5rem;
+    margin-right: 1rem;
 
     @media (max-width: 600px) {
       height: 7rem;
