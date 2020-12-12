@@ -82,7 +82,13 @@ const Caption = styled.figcaption<{ rating: number }>`
     border-radius: 50%;
     background-color: rgba(0, 0, 0, 0.6);
     color: ${({ rating }) =>
-      Number(rating) >= 8 ? 'green' : Number(rating) >= 7 ? 'orange' : Number(rating) >= 5.5 ? 'yellow' : 'red'};
+      Number(rating) >= 8
+        ? 'green'
+        : Number(rating) >= 7
+        ? 'orange'
+        : Number(rating) >= 5.5
+        ? 'yellow'
+        : 'red'};
   }
 `;
 
@@ -91,12 +97,34 @@ const Overview = styled.div`
   top: 100%;
   left: 0;
   width: 100%;
+  max-height: 90%;
   padding: 3rem;
   border-radius: ${sizes.radius.medium} ${sizes.radius.medium} 0 0;
   background-color: ${colors.darkSlate};
   box-shadow: 0 -2px 1rem rgba(0, 0, 0, 0.5);
   transform: translateY(1rem);
   transition: all 0.3s;
+  overflow-y: auto;
+
+  ::-webkit-scrollbar {
+    width: 0.5rem;
+    overflow: hidden;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.4);
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.8);
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: ${colors.primary};
+  }
 
   & > h3 {
     color: ${colors.primary};
