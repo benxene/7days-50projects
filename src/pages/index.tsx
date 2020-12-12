@@ -25,7 +25,7 @@ export default function Home({ apps, team }: IProps) {
         <Container>
           <Heading center>Index</Heading>
           <ProjectsGrid>
-            {apps.map((app: { file: string; name: string }, num: number) => {
+            {apps?.map((app: { file: string; name: string }, num: number) => {
               return (
                 <Project
                   day={num + 1}
@@ -75,14 +75,15 @@ interface IProps {
 }
 
 export const getServerSideProps: GetServerSideProps = async _ => {
-  const apps = (
+  const baseUrl =
+    process.env.NODE_ENV === 'production'
+      ? 'https://7days50projects.vercel.app'
+      : 'http://localhost:3000';
+  const { apps } = await (
     await axios.get('/api/get-projects', {
-      proxy: {
-        host: '127.0.0.1',
-        port: 3000
-      }
+      baseURL: baseUrl
     })
-  ).data.apps;
+  ).data;
 
   const team = (
     await axios.get('https://api.github.com/repos/benxene/7days-50projects/contributors')
