@@ -3,10 +3,11 @@ module.exports = {
     domains: [
       'source.unsplash.com',
       'upload.wikimedia.org',
+      'avatars.githubusercontent.com',
       'avatars0.githubusercontent.com',
       'avatars1.githubusercontent.com',
-      'avatars3.githubusercontent.com',
       'avatars2.githubusercontent.com',
+      'avatars3.githubusercontent.com',
       'raw.githubusercontent.com',
       'image.tmdb.org'
     ],
