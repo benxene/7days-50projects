@@ -35,7 +35,7 @@ export default function Home({ apps, team }: IProps) {
                   day={num + 1}
                   key={app.file}
                   image={`screenshots/${app.file}.jpg`}
-                  link={`/${app.file}`}
+                  link={app.file !== 'index' ? `/${app.file}` : '/'}
                 >
                   {app.name}
                 </Project>
