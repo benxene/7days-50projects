@@ -125,6 +125,10 @@ const Hero = styled.div`
       font-size: 3rem;
     }
   }
+
+  & > * {
+    z-index: 1;
+  }
 `;
 
 const BgImage = styled.img`
@@ -132,6 +136,7 @@ const BgImage = styled.img`
   width: 60rem;
   height: 60rem;
   opacity: 0.2;
+  z-index: 0;
 
   @media (max-width: 700px) {
     width: 40rem;
