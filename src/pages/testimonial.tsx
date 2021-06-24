@@ -1,11 +1,11 @@
-import styled, { keyframes } from 'styled-components';
+import { useEffect, useState } from 'react';
 import Head from 'next/head';
+import Image from 'next/image';
+import styled, { keyframes } from 'styled-components';
 import { FaQuoteLeft, FaQuoteRight } from 'react-icons/fa';
 
 import { CenterContainer } from '../components/Utilities';
 import { colors, sizes } from '../constants/theme';
-import Image from 'next/image';
-import { useEffect, useState } from 'react';
 import testimonials from '../constants/testimonials';
 
 export default function Testimonial() {

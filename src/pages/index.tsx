@@ -1,15 +1,12 @@
 import Head from 'next/head';
 import { GetServerSideProps } from 'next';
-import { SiNextDotJs } from 'react-icons/si';
-import styled from 'styled-components';
 import axios from 'axios';
+import styled from 'styled-components';
+import { SiNextDotJs } from 'react-icons/si';
 
 import { colors } from '../constants/theme';
 import { Container, Heading, Section } from '../components/Utilities';
-import Nav from '../components/NavigationBar';
-import DevCard from '../components/DevCard';
-import Project from '../components/Project';
-import Footer from '../components/Footer';
+import { NavigationBar, DevCard, Project, Footer } from '../components';
 
 export default function Home({ apps, team }: IProps) {
   return (
@@ -17,7 +14,7 @@ export default function Home({ apps, team }: IProps) {
       <Head>
         <title>7 Days 50 Projects</title>
       </Head>
-      <Nav />
+      <NavigationBar />
       <Hero>
         <Heading center>50 Projects in 7 Days </Heading>
         <p>Using</p>

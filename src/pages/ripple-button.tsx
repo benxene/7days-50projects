@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { CenterContainer } from '../components/Utilities';
-import RippleButton from '../components/RippleButton';
+import { RippleButton } from '../components';
 
 export default function RippleButtonPage() {
   return (

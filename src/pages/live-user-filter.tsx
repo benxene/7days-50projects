@@ -1,7 +1,7 @@
 import Head from 'next/head';
-import styled from 'styled-components';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import styled from 'styled-components';
 
 import { colors } from '../constants/theme';
 
@@ -57,7 +57,12 @@ export default function FAQ() {
           <div>
             <h4>Live User Filter</h4>
             <p>Search by name and/or location</p>
-            <input type='text' placeholder='Search' value={search} onChange={e => setSearch(e.target.value)}></input>
+            <input
+              type='text'
+              placeholder='Search'
+              value={search}
+              onChange={e => setSearch(e.target.value)}
+            ></input>
           </div>
           {!load && (
             <ul>

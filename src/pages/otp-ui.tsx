@@ -1,8 +1,8 @@
-import styled from 'styled-components';
+import { useRef, KeyboardEvent, ChangeEvent } from 'react';
 import Head from 'next/head';
+import styled from 'styled-components';
 import { CenterContainer } from '../components/Utilities';
 import { colors, sizes } from '../constants/theme';
-import { useRef, KeyboardEvent, ChangeEvent } from 'react';
 
 export default function OTP() {
   const references = useRef<any>([]);

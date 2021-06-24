@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Head from 'next/head';
-import { Section } from '../components/Utilities';
 import { useEffect, useState } from 'react';
+import { Section } from '../components/Utilities';
 
 const messages = ['Message One', 'Message Two', 'Message Three', 'Message Four'];
 

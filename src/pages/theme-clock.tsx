@@ -1,15 +1,28 @@
 import styled from 'styled-components';
 import Head from 'next/head';
+import { useState } from 'react';
 import { CgDarkMode } from 'react-icons/cg';
 
 import { ThemedCenterContainer } from '../components/Utilities';
 import { IconButton } from './netflix-nav';
-import { useState } from 'react';
 import { colors } from '../constants/theme';
 
 export default function ThemeClock() {
   const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  const months = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec'
+  ];
 
   const [isDark, setDarkMode] = useState<boolean>(false);
   const [time, setTime] = useState<Date>(new Date());

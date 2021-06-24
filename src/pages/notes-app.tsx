@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import Note from '../components/Note';
+import Head from 'next/head';
 import styled from 'styled-components';
 import { AiOutlinePlus } from 'react-icons/ai';
-import Head from 'next/head';
+import { Note } from '../components';
 
 export default function Home() {
   const [notes, setNotes] = useState<Array<string>>([]);
@@ -28,7 +28,13 @@ export default function Home() {
 
         <NotesContainer>
           {notes.map((note, index) => (
-            <Note key={index} onDelete={handleDeleteButtonClick} index={index} description={note} setNotes={setNotes} />
+            <Note
+              key={index}
+              onDelete={handleDeleteButtonClick}
+              index={index}
+              description={note}
+              setNotes={setNotes}
+            />
           ))}
         </NotesContainer>
       </Container>

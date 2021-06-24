@@ -3,7 +3,6 @@ import { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 
 import { Alert } from '../components/Utilities';
-
 import { colors } from '../constants/theme';
 
 type Coordinates = {
