@@ -13,7 +13,7 @@ export default function HoverBoard() {
       <Section>
         <Main>
           {[...new Array(500)].map((val, ind: number) => {
-            return <Box key={ind} ind={ind} />;
+            return <Box key={ind} />;
           })}
         </Main>
       </Section>
@@ -25,11 +25,7 @@ function getRandomColor() {
   return colors[Math.floor(Math.random() * colors.length)];
 }
 
-interface BoxProps {
-  ind: number;
-}
-
-function Box({ ind }: BoxProps) {
+function Box() {
   const cardRef = useRef<any>();
 
   function setColor() {

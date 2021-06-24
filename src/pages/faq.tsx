@@ -7,7 +7,7 @@ import ExpansionPanel from '../components/ExpansionPanel';
 
 const content = [
   {
-    question: "Why shouldn't we trust atoms?",
+    question: 'Why shouldn\'t we trust atoms?',
     answer: 'They make up everything'
   },
   {
@@ -15,7 +15,7 @@ const content = [
     answer: 'Nobody knows.'
   },
   {
-    question: "What's the object-oriented way to become wealthy?",
+    question: 'What\'s the object-oriented way to become wealthy?',
     answer: 'Inheritance.'
   },
   {
@@ -38,7 +38,9 @@ export default function FAQ() {
         <Main>
           <h1>Frequently Asked Questions</h1>
           {content.map((val, ind: number) => {
-            return <ExpansionPanel key={ind} ind={ind} question={val.question} answer={val.answer} />;
+            return (
+              <ExpansionPanel key={ind} ind={ind} question={val.question} answer={val.answer} />
+            );
           })}
         </Main>
       </Section>

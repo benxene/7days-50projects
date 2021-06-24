@@ -15,7 +15,7 @@ export default function ImageCarousel() {
       translate++;
       if (translate > 3) {
         translate = 0;
-        imgConRef.current.style.transform = `translateX(0px)`;
+        imgConRef.current.style.transform = 'translateX(0px)';
       }
       imgConRef.current.style.transform = `translateX(${-translate * 500}px)`;
     }, 3000);
@@ -54,7 +54,7 @@ export default function ImageCarousel() {
                 translate++;
                 if (translate > 3) {
                   translate = 0;
-                  imgConRef.current.style.transform = `translateX(0px)`;
+                  imgConRef.current.style.transform = 'translateX(0px)';
                 }
                 imgConRef.current.style.transform = `translateX(${-translate * 500}px)`;
               }}

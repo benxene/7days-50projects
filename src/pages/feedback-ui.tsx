@@ -1,10 +1,10 @@
 import { useReducer, ChangeEvent, useState } from 'react';
 import styled from 'styled-components';
 import Head from 'next/head';
+import { BsFillHeartFill } from 'react-icons/bs';
 
 import { Button, Section } from '../components/Utilities';
-import Rating from '../components/Rating';
-import { BsFillHeartFill } from 'react-icons/bs';
+import { Rating } from '../components';
 
 export default function FeedbackUI() {
   const [click, setClick] = useState<boolean>(false);
@@ -26,7 +26,13 @@ export default function FeedbackUI() {
             <SmallHeading>Thank You!</SmallHeading>
             <SmallHeading>
               Feedback:{' '}
-              {choice.Unhappy ? 'Unhappy' : choice.Neutral ? 'Neutral' : choice.Satisfied ? 'Satisfied' : 'None'}
+              {choice.Unhappy
+                ? 'Unhappy'
+                : choice.Neutral
+                ? 'Neutral'
+                : choice.Satisfied
+                ? 'Satisfied'
+                : 'None'}
             </SmallHeading>
             <p style={{ margin: '.5rem', textAlign: 'center' }}>
               We'll use your feedback to improve our customer support
@@ -34,7 +40,9 @@ export default function FeedbackUI() {
           </ResponseContainer>
         ) : (
           <FeedbackContainer>
-            <SmallHeading>How satisfied are you with our customer support performance?</SmallHeading>
+            <SmallHeading>
+              How satisfied are you with our customer support performance?
+            </SmallHeading>
             <RatingContainer>
               <Rating
                 emoji='https://image.flaticon.com/icons/svg/187/187150.svg'

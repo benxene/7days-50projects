@@ -11,11 +11,12 @@ export default function Footer() {
         <p>
           Made & maintained with &nbsp; <RiHeart2Fill color='#f81244' /> &nbsp; by
         </p>
-        <Link href='github.com/benxene'>
+        <Link href='github.com/benxene' passHref>
           <Image
             src='https://raw.githubusercontent.com/benxene/blobs/main/benxene-w-name-right.png'
             height='80'
             width='auto'
+            alt='benxene'
             objectFit='contain'
             loading='lazy'
           />

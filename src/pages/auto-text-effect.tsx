@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 
 import { colors } from '../constants/theme';
@@ -66,7 +66,15 @@ export default function AutoTextEffect() {
         </Main>
         <Bottom>
           <h6>SPEED :</h6>
-          <input type='number' name='speed' value={limit} onChange={handleChange} min={1} max={10} step={1} />
+          <input
+            type='number'
+            name='speed'
+            value={limit}
+            onChange={handleChange}
+            min={1}
+            max={10}
+            step={1}
+          />
         </Bottom>
       </Section>
     </>

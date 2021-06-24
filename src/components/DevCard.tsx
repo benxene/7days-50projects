@@ -7,7 +7,7 @@ export default function DevCard(props: DevProps) {
   const { name, contributions, avatar, profile } = props;
 
   return (
-    <Link href={profile}>
+    <Link href={profile} passHref>
       <Card>
         <Image
           src={avatar}

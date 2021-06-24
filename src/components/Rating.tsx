@@ -17,6 +17,7 @@ interface IProps {
   checked: boolean;
   id: string;
   emoji: string;
+  // eslint-disable-next-line no-unused-vars
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
   props?: any;
 }

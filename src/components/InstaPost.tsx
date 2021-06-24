@@ -1,10 +1,10 @@
+import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import styled, { keyframes } from 'styled-components';
 import { RiHeart2Line, RiHeart2Fill, RiShareFill, RiChat3Line } from 'react-icons/ri';
 
 import { sizes } from '../constants/theme';
 import Avatar from './Avatar';
-import { useEffect, useRef, useState } from 'react';
-import Image from 'next/image';
 
 export default function InstaPost({ avatar, name, image }: IPost) {
   const [likes, setLikes] = useState(0);
@@ -61,7 +61,15 @@ export default function InstaPost({ avatar, name, image }: IPost) {
   return (
     <Card>
       <CardHeader avatar={avatar} name={name} />
-      <PostImage src={image} width='100%' height='auto' loading='lazy' alt={name} unoptimized onClick={handleTap} />
+      <PostImage
+        src={image}
+        width='100%'
+        height='auto'
+        loading='lazy'
+        alt={name}
+        unoptimized
+        onClick={handleTap}
+      />
       <CardActions>
         <Likes isLiked={likes > 0} onClick={() => handleTap()}>
           {likes === 0 ? (

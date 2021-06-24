@@ -38,7 +38,8 @@ const testimonials: Array<ITestimonial> = [
   {
     name: 'Sasha Ho',
     occupation: 'Accountant',
-    avatar: 'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?h=350&auto=compress&cs=tinysrgb',
+    avatar:
+      'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?h=350&auto=compress&cs=tinysrgb',
     text:
       'This guy is a top notch designer and front end developer. He communicates well, works fast and produces quality work. We have been lucky to work with him!'
   },

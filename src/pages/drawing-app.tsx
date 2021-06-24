@@ -38,7 +38,7 @@ export default function DrawingApp() {
       };
     }
 
-    function handleMouseUp(evt: MouseEvent) {
+    function handleMouseUp() {
       mouseDown = false;
     }
 

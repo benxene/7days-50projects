@@ -22,7 +22,12 @@ export default function $3DBGBox() {
         <Boxes expanded={isExpanded}>
           {[...new Array(4).fill([...new Array(4)])].map((innerArray, outer) => {
             return innerArray.map((_: any, inner: number) => {
-              return <Box style={{ backgroundPosition: `${-inner * 125}px ${-outer * 125}px` }} />;
+              return (
+                <Box
+                  key={`${inner}-${outer}`}
+                  style={{ backgroundPosition: `${-inner * 125}px ${-outer * 125}px` }}
+                />
+              );
             });
           })}
         </Boxes>

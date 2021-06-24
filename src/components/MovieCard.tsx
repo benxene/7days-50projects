@@ -8,7 +8,7 @@ export default function MovieCard(props: IMovie) {
   return (
     <Card>
       <Figure>
-        <Image src={poster} width='auto' height='auto' loading='lazy' />
+        <Image src={poster} width='auto' height='auto' loading='lazy' alt={title} />
         <Caption rating={rating}>
           <h3>{title}</h3>
           <p>{rating}</p>

@@ -28,33 +28,43 @@ export default function RotatingNav() {
           <Content>
             <Heading>Amazing Article!!!</Heading>
             <Paragraph margin={'2rem'}>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur doloribus nulla recusandae? Eligendi
-              quia minus assumenda sequi eum maiores officia possimus magnam in, iste aliquid nesciunt quam ipsam esse
-              repellendus.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur doloribus nulla recusandae?
-              Eligendi quia minus assumenda sequi eum maiores officia possimus magnam in, iste aliquid nesciunt quam
-              ipsam esse repellendus.
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur doloribus nulla
+              recusandae? Eligendi quia minus assumenda sequi eum maiores officia possimus magnam
+              in, iste aliquid nesciunt quam ipsam esse repellendus.Lorem ipsum dolor sit amet
+              consectetur, adipisicing elit. Pariatur doloribus nulla recusandae? Eligendi quia
+              minus assumenda sequi eum maiores officia possimus magnam in, iste aliquid nesciunt
+              quam ipsam esse repellendus.
             </Paragraph>
             <Paragraph margin={'2rem'}>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur doloribus nulla recusandae? Eligendi
-              quia minus assumenda sequi eum maiores officia possimus magnam in, iste aliquid nesciunt quam ipsam esse
-              repellendus.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur doloribus nulla recusandae?
-              Eligendi quia minus assumenda sequi eum maiores officia possimus magnam in, iste aliquid nesciunt quam
-              ipsam esse repellendus.
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur doloribus nulla
+              recusandae? Eligendi quia minus assumenda sequi eum maiores officia possimus magnam
+              in, iste aliquid nesciunt quam ipsam esse repellendus.Lorem ipsum dolor sit amet
+              consectetur, adipisicing elit. Pariatur doloribus nulla recusandae? Eligendi quia
+              minus assumenda sequi eum maiores officia possimus magnam in, iste aliquid nesciunt
+              quam ipsam esse repellendus.
             </Paragraph>
-            <Image image={'batman.jpg'} margin={'2rem'} width={'90rem'} height={'50rem'}></Image>
+            <Image
+              image={'batman.jpg'}
+              alt='batman'
+              margin={'2rem'}
+              width={'90rem'}
+              height={'50rem'}
+            ></Image>
             <Paragraph margin={'2rem'}>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur doloribus nulla recusandae? Eligendi
-              quia minus assumenda sequi eum maiores officia possimus magnam in, iste aliquid nesciunt quam ipsam esse
-              repellendus.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur doloribus nulla recusandae?
-              Eligendi quia minus assumenda sequi eum maiores officia possimus magnam in, iste aliquid nesciunt quam
-              ipsam esse repellendus.
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur doloribus nulla
+              recusandae? Eligendi quia minus assumenda sequi eum maiores officia possimus magnam
+              in, iste aliquid nesciunt quam ipsam esse repellendus.Lorem ipsum dolor sit amet
+              consectetur, adipisicing elit. Pariatur doloribus nulla recusandae? Eligendi quia
+              minus assumenda sequi eum maiores officia possimus magnam in, iste aliquid nesciunt
+              quam ipsam esse repellendus.
             </Paragraph>
             <Paragraph margin={'2rem'}>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur doloribus nulla recusandae? Eligendi
-              quia minus assumenda sequi eum maiores officia possimus magnam in, iste aliquid nesciunt quam ipsam esse
-              repellendus.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur doloribus nulla recusandae?
-              Eligendi quia minus assumenda sequi eum maiores officia possimus magnam in, iste aliquid nesciunt quam
-              ipsam esse repellendus.
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur doloribus nulla
+              recusandae? Eligendi quia minus assumenda sequi eum maiores officia possimus magnam
+              in, iste aliquid nesciunt quam ipsam esse repellendus.Lorem ipsum dolor sit amet
+              consectetur, adipisicing elit. Pariatur doloribus nulla recusandae? Eligendi quia
+              minus assumenda sequi eum maiores officia possimus magnam in, iste aliquid nesciunt
+              quam ipsam esse repellendus.
             </Paragraph>
           </Content>
         </ContentContainer>

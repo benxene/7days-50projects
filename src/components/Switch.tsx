@@ -1,11 +1,16 @@
-import { ChangeEvent } from 'react';
 import styled from 'styled-components';
 import { colors } from '../constants/theme';
 
 export default function Switch({ checked, onChange, id, ...props }: IProps) {
   return (
     <>
-      <Check id={id || 'theCheck'} type='checkbox' checked={checked} onChange={onChange} {...props} />
+      <Check
+        id={id || 'theCheck'}
+        type='checkbox'
+        checked={checked}
+        onChange={onChange}
+        {...props}
+      />
       <Label htmlFor={id || 'theCheck'} />
     </>
   );
@@ -14,7 +19,7 @@ export default function Switch({ checked, onChange, id, ...props }: IProps) {
 interface IProps {
   checked: boolean;
   id?: string;
-  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  onChange: () => void;
   props?: any;
 }
 

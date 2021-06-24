@@ -19,9 +19,9 @@ export default function Home({ apps, team }: IProps) {
         <Heading center>50 Projects in 7 Days </Heading>
         <p>Using</p>
         <LogoContainer>
-          <img src='/typescript.png' style={{ marginRight: '2rem' }} />
+          <img src='/typescript.png' alt='ts' style={{ marginRight: '2rem' }} />
           <SiNextDotJs style={{ marginRight: '2rem' }} />
-          <img src='/styledcomponent.png' />
+          <img src='/styledcomponent.png' alt='styled-components' />
         </LogoContainer>
         <BgImage src='https://raw.githubusercontent.com/benxene/blobs/main/benxene-wo-name.png' />
       </Hero>
@@ -78,7 +78,7 @@ interface IProps {
   }>;
 }
 
-export const getServerSideProps: GetServerSideProps = async _ => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const baseUrl =
     process.env.NODE_ENV === 'production'
       ? 'https://7days50projects.vercel.app'
