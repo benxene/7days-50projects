@@ -43,13 +43,7 @@ export default function RotatingNav() {
               minus assumenda sequi eum maiores officia possimus magnam in, iste aliquid nesciunt
               quam ipsam esse repellendus.
             </Paragraph>
-            <Image
-              image={'batman.jpg'}
-              alt='batman'
-              margin={'2rem'}
-              width={'90rem'}
-              height={'50rem'}
-            ></Image>
+            <ImageBox image={'batman.jpg'} margin={'2rem'} width={'90rem'} height={'50rem'} />
             <Paragraph margin={'2rem'}>
               Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur doloribus nulla
               recusandae? Eligendi quia minus assumenda sequi eum maiores officia possimus magnam
@@ -211,7 +205,7 @@ const Paragraph = styled.p<{ center?: boolean; margin?: string }>`
   text-align: ${props => (props.center ? 'center' : ' left')};
 `;
 
-const Image = styled.div<{ image?: string; margin?: string; width?: string; height?: string }>`
+const ImageBox = styled.div<{ image?: string; margin?: string; width?: string; height?: string }>`
   margin: ${props => props.margin} auto;
   width: ${props => props.width};
   height: ${props => props.height};
