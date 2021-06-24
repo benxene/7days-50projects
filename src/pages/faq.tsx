@@ -1,13 +1,12 @@
 import Head from 'next/head';
 import styled from 'styled-components';
 
+import { ExpansionPanel } from '../components';
 import { colors } from '../constants/theme';
-
-import ExpansionPanel from '../components/ExpansionPanel';
 
 const content = [
   {
-    question: 'Why shouldn\'t we trust atoms?',
+    question: "Why shouldn't we trust atoms?",
     answer: 'They make up everything'
   },
   {
@@ -15,7 +14,7 @@ const content = [
     answer: 'Nobody knows.'
   },
   {
-    question: 'What\'s the object-oriented way to become wealthy?',
+    question: "What's the object-oriented way to become wealthy?",
     answer: 'Inheritance.'
   },
   {

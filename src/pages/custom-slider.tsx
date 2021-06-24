@@ -1,6 +1,6 @@
 import Head from 'next/head';
-import Slider from '../components/Slider';
 import { CenterContainer, Heading } from '../components/Utilities';
+import { Slider } from '../components';
 
 export default function CustomSlider() {
   return (
