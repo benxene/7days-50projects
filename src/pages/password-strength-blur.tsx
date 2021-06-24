@@ -1,9 +1,9 @@
-import styled from 'styled-components';
 import Head from 'next/head';
-import { colors, sizes } from '../constants/theme';
-import RippleButton from '../components/RippleButton';
-import { Alert } from '../components/Utilities';
 import { useEffect, useState } from 'react';
+import styled from 'styled-components';
+import { colors, sizes } from '../constants/theme';
+import { RippleButton } from '../components';
+import { Alert } from '../components/Utilities';
 
 export default function PasswordStrengthBlur() {
   const [password, setPassword] = useState<string>('');

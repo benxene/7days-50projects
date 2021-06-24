@@ -1,10 +1,10 @@
-import styled from 'styled-components';
 import Head from 'next/head';
 import { useState } from 'react';
+import styled from 'styled-components';
 
 import { CenterContainer } from '../components/Utilities';
 import { colors } from '../constants/theme';
-import Button from '../components/RippleButton';
+import { RippleButton as Button } from '../components';
 
 export default function SplitLandingPage() {
   const [cursorInLeft, setCursorInLeft] = useState<boolean>();
@@ -67,7 +67,8 @@ const LeftContainer = styled(CenterContainer)`
   left: 0;
   width: 50vw;
   height: 100vh;
-  background-image: linear-gradient(to bottom right, rgba(14, 21, 224, 0.5), rgba(41, 39, 144, 0.2)), url(ps5.png);
+  background-image: linear-gradient(to bottom right, rgba(14, 21, 224, 0.5), rgba(41, 39, 144, 0.2)),
+    url(ps5.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -79,7 +80,8 @@ const RightContainer = styled(CenterContainer)`
   right: 0;
   width: 50vw;
   height: 100vh;
-  background-image: linear-gradient(to bottom left, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4)), url(xbox.jpg);
+  background-image: linear-gradient(to bottom left, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4)),
+    url(xbox.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   transition: width 1s;

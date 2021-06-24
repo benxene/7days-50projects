@@ -1,10 +1,10 @@
+import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import styled, { keyframes } from 'styled-components';
 
 import { CenterContainer } from '../components/Utilities';
 import { shadows, sizes } from '../constants/theme';
-import { useEffect, useState } from 'react';
 
 export default function SkeletonLoader() {
   const [loaded, setLoaded] = useState<boolean>(false);
@@ -37,7 +37,11 @@ export default function SkeletonLoader() {
           <CardContent>
             <h4>{loaded ? 'Lorem ipsum sit amit' : <SmallLoader />}</h4>
             <p>
-              {loaded ? 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore perferendi' : <SmallLoader />}
+              {loaded ? (
+                'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore perferendi'
+              ) : (
+                <SmallLoader />
+              )}
             </p>
 
             {loaded ? <img src='/batman.jpg' alt='batman' /> : <Loader />}

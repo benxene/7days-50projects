@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Head from 'next/head';
 import { RiSearch2Line } from 'react-icons/ri';
 
-import MovieCard from '../components/MovieCard';
+import { MovieCard } from '../components';
 import { colors } from '../constants/theme';
 import { IconButton } from './netflix-nav';
 import axios from 'axios';

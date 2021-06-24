@@ -1,10 +1,8 @@
-/** @format */
+import Head from 'next/head';
 import styled from 'styled-components';
 import { MdExpandMore } from 'react-icons/md';
 import { BiMessageRounded } from 'react-icons/bi';
-
 import { BsArrowCounterclockwise, BsHeartFill, BsEnvelope } from 'react-icons/bs';
-import Head from 'next/head';
 
 // colors
 const lightGrey = '#acabab';

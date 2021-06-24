@@ -1,7 +1,7 @@
 import Head from 'next/head';
 
 import { CenterContainer } from '../components/Utilities';
-import InstaPost from '../components/InstaPost';
+import { InstaPost } from '../components';
 
 export default function DoubleClickLike() {
   return (

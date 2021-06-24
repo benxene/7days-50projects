@@ -1,10 +1,10 @@
 import { useRef } from 'react';
 import Head from 'next/head';
 import styled from 'styled-components';
+import { FaArrowUp, FaArrowDown } from 'react-icons/fa';
 
 import { Section } from '../components/Utilities';
 import { colors } from '../constants/theme';
-import { FaArrowUp, FaArrowDown } from 'react-icons/fa';
 
 let translate = 0;
 
@@ -20,19 +20,31 @@ export default function VerticalSlider() {
       leftRef.current.style.transform = `translateY(0px)`;
       rightRef.current.style.transform = `translateY(0px)`;
     }
-    leftRef.current.style.transform = `translateY(${translate * sectionRef.current.offsetHeight}px)`;
-    rightRef.current.style.transform = `translateY(${-translate * sectionRef.current.offsetHeight}px)`;
+    leftRef.current.style.transform = `translateY(${
+      translate * sectionRef.current.offsetHeight
+    }px)`;
+    rightRef.current.style.transform = `translateY(${
+      -translate * sectionRef.current.offsetHeight
+    }px)`;
   };
 
   const handleDownChange = () => {
     translate--;
     if (translate < 0) {
       translate = 3;
-      leftRef.current.style.transform = `translateY(${-translate * sectionRef.current.offsetHeight}px)`;
-      rightRef.current.style.transform = `translateY(${translate * sectionRef.current.offsetHeight}px)`;
+      leftRef.current.style.transform = `translateY(${
+        -translate * sectionRef.current.offsetHeight
+      }px)`;
+      rightRef.current.style.transform = `translateY(${
+        translate * sectionRef.current.offsetHeight
+      }px)`;
     }
-    leftRef.current.style.transform = `translateY(${translate * sectionRef.current.offsetHeight}px)`;
-    rightRef.current.style.transform = `translateY(${-translate * sectionRef.current.offsetHeight}px)`;
+    leftRef.current.style.transform = `translateY(${
+      translate * sectionRef.current.offsetHeight
+    }px)`;
+    rightRef.current.style.transform = `translateY(${
+      -translate * sectionRef.current.offsetHeight
+    }px)`;
   };
 
   return (
