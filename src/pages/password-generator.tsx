@@ -8,7 +8,7 @@ import { colors, sizes } from '../constants/theme';
 import { initialOptions, reducer } from '../helpers/passgen-reducer';
 import { generatePassword } from '../functions/password-generator';
 
-export default function passwordGenerator() {
+export default function PasswordGenerator() {
   const [password, setPassword] = useState<string>('');
   const [options, dispatch] = useReducer(reducer, initialOptions);
   const [copied, setCopied] = useState<boolean>(false);
@@ -112,14 +112,6 @@ export default function passwordGenerator() {
       </CenterContainer>
     </>
   );
-}
-
-interface IOptions {
-  noOfChars: number;
-  allowCaps: boolean;
-  allowSmall: boolean;
-  allowNumbers: boolean;
-  allowSpecial: boolean;
 }
 
 const Frame = styled.div`

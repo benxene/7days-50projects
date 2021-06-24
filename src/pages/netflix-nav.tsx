@@ -25,6 +25,7 @@ export default function NetflixNavigation() {
         </HamMenuButton>
         <Image
           src='https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg'
+          alt='Netflix'
           loading='lazy'
           width='250'
           unoptimized
@@ -37,6 +38,7 @@ export default function NetflixNavigation() {
             <img
               src='https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg'
               loading='lazy'
+              alt='Netflix'
               width='150'
               height='auto'
             />

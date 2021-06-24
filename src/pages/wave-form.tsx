@@ -38,7 +38,7 @@ export default function FormWave() {
             </FormComponent>
             <button type='submit'>Login</button>
             <p>
-              Don't have an account? <a href='#'>Register</a>{' '}
+              Don&apos;t have an account? <a href='#'>Register</a>
             </p>
           </form>
         </Main>

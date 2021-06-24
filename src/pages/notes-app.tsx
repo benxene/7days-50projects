@@ -8,7 +8,7 @@ export default function Home() {
   const [notes, setNotes] = useState<Array<string>>([]);
 
   const handleDeleteButtonClick = (i: number) => {
-    const result = notes.filter((item, index) => i !== index);
+    const result = notes.filter((_item, index) => i !== index);
     setNotes(result);
   };
 

@@ -17,8 +17,8 @@ export default function VerticalSlider() {
     translate++;
     if (translate > 3) {
       translate = 0;
-      leftRef.current.style.transform = `translateY(0px)`;
-      rightRef.current.style.transform = `translateY(0px)`;
+      leftRef.current.style.transform = 'translateY(0px)';
+      rightRef.current.style.transform = 'translateY(0px)';
     }
     leftRef.current.style.transform = `translateY(${
       translate * sectionRef.current.offsetHeight

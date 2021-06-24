@@ -6,7 +6,7 @@ export default function Note(props: {
   setNotes: React.Dispatch<React.SetStateAction<string[]>>;
   index: number;
   description: string;
-  onDelete: (arg0: number) => void;
+  onDelete: Function;
 }) {
   const [disabled, setDisable] = useState(true);
 
