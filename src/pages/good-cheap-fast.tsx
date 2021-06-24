@@ -1,8 +1,8 @@
 import Head from 'next/head';
-import { CenterContainer } from '../components/Utilities';
-import Switch from '../components/Switch';
 import { ChangeEvent, useReducer } from 'react';
 import styled from 'styled-components';
+import { CenterContainer } from '../components/Utilities';
+import { Switch } from '../components';
 
 export default function GoodCheapFast() {
   const [choice, dispatch] = useReducer(reducer, initialChoices);
