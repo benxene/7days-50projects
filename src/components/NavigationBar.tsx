@@ -21,9 +21,9 @@ export default function NavigationBar() {
       <a href='https://github.com/benxene' className='brand'>
         <Image
           src='https://raw.githubusercontent.com/benxene/blobs/main/benxene-wo-name.png'
-          width='40'
           alt='benxene'
-          height='40'
+          width={40}
+          height={40}
           objectFit='contain'
         />
       </a>

@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import styled from 'styled-components';
 import { colors, sizes } from '../constants/theme';
 
@@ -8,7 +7,12 @@ export default function MovieCard(props: IMovie) {
   return (
     <Card>
       <Figure>
-        <Image src={poster} width='auto' height='auto' loading='lazy' alt={title} />
+        <img
+          src={poster}
+          style={{ height: 'auto', flex: 1, maxHeight: '100%', maxWidth: '100%' }}
+          loading='lazy'
+          alt={title}
+        />
         <Caption rating={rating}>
           <h3>{title}</h3>
           <p>{rating}</p>

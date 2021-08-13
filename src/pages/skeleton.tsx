@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import Head from 'next/head';
-import Image from 'next/image';
 import styled, { keyframes } from 'styled-components';
 
 import { CenterContainer } from '../components/Utilities';
@@ -22,13 +21,15 @@ export default function SkeletonLoader() {
         <Card>
           <CardImage>
             {loaded ? (
-              <Image
+              <img
                 src='/batman.jpg'
                 alt='batman'
-                width='auto'
-                height='auto'
-                objectFit='cover'
-                objectPosition='center'
+                style={{
+                  height: 'auto',
+                  width: '100%',
+                  objectFit: 'cover',
+                  objectPosition: 'center'
+                }}
               />
             ) : (
               <Loader />

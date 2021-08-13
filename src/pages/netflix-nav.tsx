@@ -27,9 +27,8 @@ export default function NetflixNavigation() {
           src='https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg'
           alt='Netflix'
           loading='lazy'
-          width='250'
+          width={250}
           unoptimized
-          height='auto'
         />
         <p>Mobile Navigation</p>
 

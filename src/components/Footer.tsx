@@ -9,13 +9,13 @@ export default function Footer() {
     <>
       <Foot>
         <p>
-          Made & maintained with &nbsp; <RiHeart2Fill color='#f81244' /> &nbsp; by
+          Made {'&'} maintained with &nbsp; <RiHeart2Fill color='#f81244' /> &nbsp; by
         </p>
         <Link href='https://www.github.com/benxene' passHref>
           <Image
             src='https://raw.githubusercontent.com/benxene/blobs/main/benxene-w-name-right.png'
-            height='80'
-            width='auto'
+            height={80}
+            width={140}
             alt='benxene'
             objectFit='contain'
             loading='lazy'
