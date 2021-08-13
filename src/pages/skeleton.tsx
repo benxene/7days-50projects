@@ -22,13 +22,15 @@ export default function SkeletonLoader() {
         <Card>
           <CardImage>
             {loaded ? (
-              <Image
+              <img
                 src='/batman.jpg'
                 alt='batman'
-                width='auto'
-                height='auto'
-                objectFit='cover'
-                objectPosition='center'
+                style={{
+                  height: 'auto',
+                  width: '100%',
+                  objectFit: 'cover',
+                  objectPosition: 'center'
+                }}
               />
             ) : (
               <Loader />

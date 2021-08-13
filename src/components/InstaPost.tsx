@@ -63,8 +63,8 @@ export default function InstaPost({ avatar, name, image }: IPost) {
       <CardHeader avatar={avatar} name={name} />
       <PostImage
         src={image}
-        width='100%'
-        height='auto'
+        width={300}
+        height={200}
         loading='lazy'
         alt={name}
         unoptimized

@@ -9,14 +9,14 @@ export default function DevCard(props: DevProps) {
   return (
     <Link href={profile} passHref>
       <Card>
-        <Image
+        <img
           src={avatar}
           alt={name}
-          width='auto'
-          height='auto'
           loading='lazy'
-          objectFit='cover'
-          objectPosition='center'
+          style={{
+            objectFit: 'cover',
+            objectPosition: 'center'
+          }}
         />
         <Details>
           <h4>{name}</h4>
