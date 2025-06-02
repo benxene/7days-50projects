@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import Head from 'next/head';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { CgDarkMode } from 'react-icons/cg';
 
 import { ThemedCenterContainer } from '../components/Utilities';
@@ -31,8 +31,10 @@ export default function ThemeClock() {
     setDarkMode(prevMode => !prevMode);
   };
 
-  // inefficient by okay.
-  setInterval(() => setTime(new Date()), 1000);
+  useEffect(() => {
+    const interval = setInterval(() => setTime(new Date()), 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <>
